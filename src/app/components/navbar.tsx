@@ -7,12 +7,12 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 z-50 bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="text-xl font-bold text-blue-600">Oliver J Dimes</div>
+          <div className="text-xl font-bold text-blue-600"><Link href="/">Oliver J Dimes</Link></div>
           <ul className="flex space-x-6 text-gray-700 font-medium">
-            <li><Link href="/">Posts</Link></li>
+            <li><Link href="/posts">Posts</Link></li>
             <li><Link href="/about">About Me</Link></li>
-            <li><Link href="/projects">Linkedin</Link></li>
-            <li><Link href="/contact">Bluesky</Link></li>
+            <li><Link href="https://www.linkedin.com/in/oliver-dimes-793b31194/">Linkedin</Link></li>
+            <li><Link href="https://bsky.app/profile/effeect.bsky.social">Bluesky</Link></li>
           </ul>
         </div>
       </nav>

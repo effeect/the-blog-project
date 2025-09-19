@@ -3,7 +3,7 @@ import Link from "next/link";
 
 // Custom Imports
 import HeroHeader from "./components/heroHeader";
-import { getSortedPosts } from '../../lib/posts'; 
+import { getSortedPosts } from './lib/posts'; 
 
 // Might need it back I'm not sure
 // export async function getStaticProps(){
