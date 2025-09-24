@@ -1,12 +1,11 @@
-import PostsList from "../components/postsList";
-
-export default function AboutPage() {
+import React from "react";
+export default function About() {
 
   return(<>
-    <h1>
-        Hello World
-    </h1>
-    <PostsList></PostsList>
+    <div className="max-w-3xl mx-auto px-4 py-10">
+      <h1 className="text-4xl font-bold mb-6">About Me</h1>
+      <p>To be filled in lol</p>
+    </div>
   </>)
 
 }

@@ -16,10 +16,10 @@ export default function PostsPage() {
     <ul className="space-y-4">
         {/* Below will loop through the array and create a line item and link item along with it*/}
     {allPostsData.map(({id, date, title}) => (
-        <li className="hover:bg-blue-900 transition-colors rounded-md p-4 shadow-sm border border-gray-200" key={id}>
-        <Link href={`/posts/${id}`}> <h3 className="text-lg font-medium text-blue-600 hover:underline">{title}</h3></Link>
-        <br/>
-        <Date dateString={date}></Date>
+        <li className="hover:bg-gray-500 transition-colors rounded-md p-4" key={id}>
+        <Link href={`/posts/${id}`}> <h3 className="text-lg font-medium text-white hover:underline">{title}</h3></Link>
+        
+        <label>Posted on </label><Date dateString={date}></Date>
         </li>
     ))}
     
