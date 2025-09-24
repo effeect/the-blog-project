@@ -60,11 +60,17 @@ export async function getPostData(id){
     const fileContents = fs.readFileSync(fullPath, 'utf-8');
     const matterResult = matter(fileContents)
 
+    // 🔑 Fix image paths before passing to remark
+const fixedContent = matterResult.content.replace(
+    /!\[(.*?)\]\(\.\.\/public\/(.*?)\)/g,
+    "![$1](/$2)"
+);
     const processedContent = await remark()
     .use(html)
-    .process(matterResult.content);
+    .process(fixedContent);
     const contentHtml = processedContent.toString();
 
+    
 
     return {
         id,

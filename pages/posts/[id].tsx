@@ -36,14 +36,14 @@ export default function Post({ postData }: PostProps){
             <Head>
                 <title>{postData.title}</title>
             </Head>
-            <div className="max-w-3xl mx-auto px-4 py-8 text-white-800">
-                <h1 className="text-4xl font-bold mb-6">{postData.title}</h1>
+            <div className="max-w-5xl mx-auto px-4 py-8 text-white-800">
+                <h1 className="text-5xl font-bold mb-6">{postData.title}</h1>
                 <p className="text-sm text-gray-500 mb-4">
                     Posted on {postData.date}
                 </p>
                     {/* Need to change the below div at some point */}
                 <div
-                className={`prose-lg prose-gray-200 dark:prose-invert min-h-[500px]`}
+                className={`prose dark:prose-invert min-h-[500px] max-w-5xl`}
                 dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                 ></div>
             </div>
