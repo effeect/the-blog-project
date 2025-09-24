@@ -10,7 +10,7 @@ export async function getStaticPaths(){
     };
 }
 
-export async function getStaticProps({ params }){
+export async function getStaticProps({ params }: { params: { id: string } }){
     const postData = await getPostData(params.id);
 
     return {
@@ -22,14 +22,31 @@ export async function getStaticProps({ params }){
 
 // Function that will display the post as we want it.
 // Using the Layout from the app as the main file
-export default function Post({postData}){
+type PostProps = {
+    postData: {
+        title: string;
+        contentHtml: string;
+        date: string;
+    };
+};
+
+export default function Post({ postData }: PostProps){
     return(
         <Layout>
             <Head>
-                <title>Hello World!</title>
+                <title>{postData.title}</title>
             </Head>
-            <h1>PLEASE READ</h1>
-            <div dangerouslySetInnerHTML={{__html:postData.contentHtml}}></div>
+            <div className="max-w-3xl mx-auto px-4 py-8 text-white-800">
+                <h1 className="text-4xl font-bold mb-6">{postData.title}</h1>
+                <p className="text-sm text-gray-500 mb-4">
+                    Posted on {postData.date}
+                </p>
+{/* Need to change the below div at some point */}
+                <div
+                className={`prose prose-lg prose-gray-800 dark:prose-invert`}
+                dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+                ></div>
+            </div>
         </Layout>
     )
 }
