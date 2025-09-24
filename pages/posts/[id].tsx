@@ -41,9 +41,9 @@ export default function Post({ postData }: PostProps){
                 <p className="text-sm text-gray-500 mb-4">
                     Posted on {postData.date}
                 </p>
-{/* Need to change the below div at some point */}
+                    {/* Need to change the below div at some point */}
                 <div
-                className={`prose prose-lg prose-gray-800 dark:prose-invert`}
+                className={`prose-lg prose-gray-200 dark:prose-invert min-h-[500px]`}
                 dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                 ></div>
             </div>

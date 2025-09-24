@@ -3,6 +3,7 @@ import Link from "next/link";
 
 // Custom Imports
 import HeroHeader from "./components/heroHeader";
+import PostsList from "./components/postsList";
 import { getSortedPosts } from './lib/posts'; 
 
 // Might need it back I'm not sure
@@ -20,20 +21,7 @@ export default function Home() {
 
   return (<>
     <HeroHeader></HeroHeader>
-    <div></div>
-      <h2> Latest Posts : </h2>
-      <section>
-      <ul>
-        {allPostsData.map(({id, date, title}) => (
-          <li key={id}>
-            <Link href={`/posts/${id}`}>{title}</Link>
-            <br />
-          </li>
-        ))}
-        
-        
-      </ul>
-    </section>
+    <PostsList></PostsList>
     </>
   );
 }

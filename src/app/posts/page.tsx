@@ -1,4 +1,5 @@
-import Image from "next/image";
+// This page will show all posts in a list format with links to each post
+// Using getSortedPosts function from lib/posts.ts to get the data
 import Link from "next/link";
 import Date from "../lib/date";
 
@@ -15,7 +16,7 @@ export default function PostsPage() {
     <ul className="space-y-4">
         {/* Below will loop through the array and create a line item and link item along with it*/}
     {allPostsData.map(({id, date, title}) => (
-        <li className="hover:bg-gray-100 transition-colors rounded-md p-4 shadow-sm border border-gray-200" key={id}>
+        <li className="hover:bg-blue-900 transition-colors rounded-md p-4 shadow-sm border border-gray-200" key={id}>
         <Link href={`/posts/${id}`}> <h3 className="text-lg font-medium text-blue-600 hover:underline">{title}</h3></Link>
         <br/>
         <Date dateString={date}></Date>
