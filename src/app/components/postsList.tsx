@@ -2,9 +2,15 @@ import { getSortedPosts } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../lib/date';
 
+type PostData={
+    id: string;
+    date: string;
+    title: string;
+}
+
 export default function PostsList() {
     // Fetching sorted posts data for the list
-    const allPostsData = getSortedPosts();
+    const allPostsData = getSortedPosts() as PostData[];
 
     return (<>
     <div className='max-w-3xl mx-auto px-4 py-10'>

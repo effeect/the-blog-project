@@ -9,6 +9,12 @@ import html from "remark-html"
 
 const postsDir = path.join(process.cwd(), 'posts');
 
+type PostData={
+    id: string;
+    date: string;
+    title: string;
+}
+
 // Grabbing the files from the postsDir, the posts are in the .md format
 export function getSortedPosts(){
     const fileNames = fs.readdirSync(postsDir);
@@ -30,9 +36,10 @@ export function getSortedPosts(){
             id,
             ...matterResult.data
         };
-    })
+    })as PostData[];
+    
 
-    return allPostsData.sort((a, b) => {
+    return allPostsData.sort((a , b) => {
         if(a.date < b.date){
             return 1;
         } else {
@@ -54,7 +61,7 @@ export function getAllPostIds(){
 })
 }
 
-export async function getPostData(id){
+export async function getPostData(id: string){
     //Using the gray matter function
     const fullPath = path.join(postsDir, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf-8');

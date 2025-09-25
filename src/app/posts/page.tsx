@@ -6,8 +6,14 @@ import Date from "../lib/date";
 // Custom Imports
 import { getSortedPosts } from '../lib/posts'; 
 
+type PostData={
+    id: string;
+    date: string;
+    title: string;
+}
+
 export default function PostsPage() {
-  const allPostsData = getSortedPosts();
+  const allPostsData = getSortedPosts() as PostData[];
 
   return(
   <>
