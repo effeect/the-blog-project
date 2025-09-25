@@ -12,7 +12,7 @@ export default function Navbar() {
     </div>
     <ul className="flex space-x-6 text-gray-700 font-medium">
       {[
-        // { href: "/posts", label: "Posts" },
+        { href: "/posts", label: "Posts" },
         { href: "/about", label: "About Me" },
         { href: "https://www.linkedin.com/in/oliver-dimes-793b31194/", label: "Linkedin" },
         { href: "https://bsky.app/profile/effeect.bsky.social", label: "Bluesky" },
