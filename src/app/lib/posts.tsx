@@ -13,6 +13,8 @@ type PostData={
     id: string;
     date: string;
     title: string;
+    // Optional fields
+    tags ?: string[];
 }
 
 // Grabbing the files from the postsDir, the posts are in the .md format

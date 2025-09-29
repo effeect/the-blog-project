@@ -1,6 +1,7 @@
 ---
 title: 'Extracting frames out of videos with JavaScript'
 date: '2025-09-25'
+tags: ["dev"]
 ---
 
 # Why?
@@ -60,5 +61,9 @@ I did implement some stuff for future like doing more intircate frames per secon
 
 Since I developed this tool with Next.js, I was able to quickly get the web app up and running as an SPA effectively. Whilst it's not much I'm pretty happy with the overall result and the cleaniness of the UI.
 
-You can check out the website on here : https://frame-extracter-site.vercel.app
-And you can also check out the Github here : https://github.com/effeect/frame-extracter-site
+You can check out the website on here : [FrameExtractor](https://frame-extracter-site.vercel.app)
+
+And you can also check out the Github here : [Github](https://github.com/effeect/frame-extracter-site)
+
+Many Thanks,
+Ollie

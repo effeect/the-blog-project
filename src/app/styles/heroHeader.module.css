@@ -13,5 +13,5 @@
 .animateGradient {
   background: linear-gradient(-45deg, #060606, #253142, #1e417d, #175be2);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 60s ease infinite;
 }

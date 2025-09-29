@@ -27,6 +27,7 @@ type PostProps = {
         title: string;
         contentHtml: string;
         date: string;
+        tags ?: string[];
     };
 };
 
@@ -41,7 +42,18 @@ export default function Post({ postData }: PostProps){
                 <p className="text-sm text-gray-500 mb-4">
                     Posted on {postData.date}
                 </p>
-                    {/* Need to change the below div at some point */}
+                <div className="mt-2">
+                    {postData.tags && postData.tags.length > 0 && (
+                        <div className="mt-2">
+                            {postData.tags.map((tag) => (
+                                <span key={tag} className="inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded-full mr-2 hover:bg-amber-700">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+                </div>
+                <hr className="my-6 border-gray-300" />
                 <div
                 className={`prose dark:prose-invert min-h-[500px] max-w-5xl`}
                 dangerouslySetInnerHTML={{ __html: postData.contentHtml }}

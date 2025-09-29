@@ -1,6 +1,7 @@
 ---
 title: 'Opening Day'
 date: '2025-09-24'
+tags: ["general"]
 ---
 
 If you are reading this, hooray this might be my first blog post on this blog I made. lol I guess.
