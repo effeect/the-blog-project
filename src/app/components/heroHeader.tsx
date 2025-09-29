@@ -1,5 +1,5 @@
 // For the home page
-import styles from "../styles/heroHeader.module.css";
+import styles from "../../styles/heroHeader.module.css";
 import PostsList from "./postsList";
 
 export default function HeroHeader() {
