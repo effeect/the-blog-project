@@ -4,7 +4,9 @@ import PostsList from "./postsList";
 
 export default function HeroHeader() {
   return (
-    <section className={`${styles.animateGradient} min-h-screen bg-gray-100 dark:bg-gray-900 py-20 px-6 text-center justify-center flex`}>
+    <section
+      className={`${styles.animateGradient} min-h-screen bg-gray-100 dark:bg-gray-900 py-20 px-6 text-center justify-center flex`}
+    >
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Column */}
         <div>
@@ -12,10 +14,11 @@ export default function HeroHeader() {
             Welcome!
           </h1>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8">
-            Just a blog/portfolio site that contains a bunch of ramblings and projects of mine.
+            Just a blog/portfolio site that contains a bunch of ramblings and
+            projects of mine.
           </p>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8">
-            Feel free to check out the posts! Enjoy!
+            Feel free to check out the posts!
           </p>
         </div>
 
