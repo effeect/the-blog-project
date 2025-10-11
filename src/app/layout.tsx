@@ -13,6 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "oliverdimes.dev",
+  description: "Blog/Portfolio Website for a software developer.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,12 +31,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-col min-h-screen">
-        <main className="flex-grow">
-        <Navbar></Navbar>
-        {children}
-        </main>
-        <Footer></Footer>
-        
+          <main className="flex-grow">
+            <Navbar></Navbar>
+            {children}
+          </main>
+          <Footer></Footer>
         </div>
       </body>
     </html>
