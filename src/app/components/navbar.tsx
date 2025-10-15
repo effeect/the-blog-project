@@ -12,8 +12,8 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 z-50 bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="text-xl font-bold hover:text-blue-600 text-black">
-            <Link href="/">Oliver J Dimes</Link>
+          <div className="text-2xl hover:text-blue-600 text-black text-">
+            <Link href="/">oliverdimes.dev</Link>
           </div>
           {/* Hamburger Icon */}
           <div className="flex items-center">

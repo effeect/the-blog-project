@@ -2,9 +2,10 @@
 import HeroHeader from "./components/heroHeader";
 
 export default function Home() {
-  console.log("Home Page Loaded");
-  return (<>
-    <HeroHeader></HeroHeader>
+  return (
+    <>
+      <title>oliverdimes.dev - Home</title>
+      <HeroHeader></HeroHeader>
     </>
   );
 }
