@@ -12,12 +12,12 @@ type PostData = {
   summary?: string; // Added summary for metadata type safety
   contentHtml?: string;
 };
-// ✅ Required for dynamic routes
+
 export async function generateStaticParams() {
   return getAllPostIds();
 }
 
-// ✅ Metadata function
+// Creates metadata, useful for social media like bsky/twitter (rip twitter)
 export async function generateMetadata(props: {
   params: Promise<{ id: string }>;
 }) {
