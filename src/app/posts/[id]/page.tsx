@@ -2,41 +2,54 @@ import { notFound } from "next/navigation";
 import { getAllPostIds, getPostData } from "@/app/lib/posts";
 import { Metadata } from "next";
 
+// ✅ Type definition for PostData (used only to suppress the previous ESLint warning,
+//    but you should use it for type safety of post variables if possible)
 type PostData = {
   id: string;
   date: string;
   title: string;
   tags?: string[];
+  summary?: string; // Added summary for metadata type safety
   contentHtml?: string;
 };
-
 // ✅ Required for dynamic routes
 export async function generateStaticParams() {
-  return getAllPostIds(); // returns [{ id: "post1" }, { id: "post2" }]
+  return getAllPostIds();
 }
 
-// ✅ Metadata function — use inline type
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
-  const resolvedParams = await params;
-  const post = await getPostData(resolvedParams.id);
+// ✅ Metadata function
+export async function generateMetadata(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await props.params;
+  console.log(params);
+  const id = params.id;
+  const post = (await getPostData(id)) as PostData;
+
   if (!post) return { title: "Post Not Found" };
 
   return {
+    metadataBase: new URL("https://oliverdimes.dev"),
+    alternates: {
+      canonical: "/",
+    },
     title: `oliverdimes.dev - ${post.title}`,
-    description: post.tags?.join(", ") ?? "Blog post by Oliver",
+    description: post.summary ?? `A post about ${post.tags?.join(", ")}`,
+    keywords: post.tags?.join(", ") ?? "Blog post by Oliver",
+    openGraph: {
+      images: ["/assets/the-frame-extraction-project/website.png"],
+    },
   };
 }
 
-// ✅ Page component — use inline type
-export default async function PostPage({ params }: { params: { id: string } }) {
-  const resolvedParams = await params;
-  const postData = await getPostData(resolvedParams.id);
-  if (!postData || !postData.contentHtml) return notFound();
+export default async function PostPage(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await props.params;
+  const id = params.id;
+  const postData = (await getPostData(id)) as PostData;
 
+  if (!postData || !postData.contentHtml) return notFound();
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 text-white-800">
       <h1 className="text-5xl font-bold mb-6">{postData.title}</h1>
