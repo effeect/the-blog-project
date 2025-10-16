@@ -71,7 +71,7 @@ export default function Navbar() {
                     className="items-center justify-center inline-flex transition-colors duration-300 hover:text-indigo-600"
                   >
                     {/* Show label on mobile (hamburger mode) */}
-                    <span className="md:hidden">{label}</span>
+                    <span className="md:hidden">{icon && label}</span>
 
                     {/* Show icon on desktop */}
                     {icon && (
