@@ -11,6 +11,7 @@ type PostData = {
   date: string;
   title: string;
   tags?: string[];
+  summary?: string;
 };
 
 export default function PostsPage() {
@@ -26,7 +27,7 @@ export default function PostsPage() {
         </h2>
         <ul className="space-y-4">
           {/* Below will loop through the array and create a line item and link item along with it*/}
-          {allPostsData.map(({ id, date, title, tags }) => (
+          {allPostsData.map(({ id, date, title, tags, summary }) => (
             <li
               className="hover:bg-gray-500 transition-colors rounded-md p-4"
               key={id}
@@ -37,9 +38,11 @@ export default function PostsPage() {
                   {title}
                 </h3>
               </Link>
-
-              <label>Posted on </label>
-              <Date dateString={date}></Date>
+              <label className="text-sm text-gray-300"> {summary}</label>
+              <br />
+              <label className="text-sm italic text-gray-300">
+                Posted on <Date dateString={date}></Date>
+              </label>
               {tags && tags.length > 0 && (
                 <div className="mt-2">
                   {tags.map((tag) => (
