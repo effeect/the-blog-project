@@ -4,6 +4,7 @@ import PostsList from "./postsList";
 import BackgroundImages from "./backgroundImages";
 import Link from "next/link";
 
+// Loading Images links from above
 export default function HeroHeader({ images }: { images: string[] }) {
   return (
     <section className="relative overflow-hidden">
@@ -40,6 +41,7 @@ export default function HeroHeader({ images }: { images: string[] }) {
               About Me
             </Link>
           </div>
+          <PostsList></PostsList>
         </div>
 
         {/* You can replace this with an image, buttons, or anything else */}
