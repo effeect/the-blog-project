@@ -34,13 +34,11 @@ export default function PostsPage() {
             >
               <Link href={`/posts/${id}`}>
                 {" "}
-                <h3 className="text-lg font-medium text-white hover:underline">
-                  {title}
-                </h3>
+                <h3 className="text-lg font-medium hover:underline">{title}</h3>
               </Link>
-              <label className="text-sm text-gray-300"> {summary}</label>
+              <label className="text-sm "> {summary}</label>
               <br />
-              <label className="text-sm italic text-gray-300">
+              <label className="text-sm italic ">
                 Posted on <Date dateString={date}></Date>
               </label>
               {tags && tags.length > 0 && (
