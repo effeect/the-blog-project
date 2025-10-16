@@ -8,6 +8,7 @@ type PostData = {
   id: string;
   date: string;
   title: string;
+  previewImage?: string;
   tags?: string[];
   summary?: string; // Added summary for metadata type safety
   contentHtml?: string;
@@ -27,6 +28,13 @@ export async function generateMetadata(props: {
 
   if (!post) return { title: "Post Not Found" };
 
+  // Setting a default preview image if none is provided
+  if (!post.previewImage) {
+    post.previewImage = "/default-preview.png";
+  }
+
+  console.log(post.previewImage);
+
   return {
     metadataBase: new URL("https://oliverdimes.dev"),
     alternates: {
@@ -36,7 +44,7 @@ export async function generateMetadata(props: {
     description: post.summary ?? `A post about ${post.tags?.join(", ")}`,
     keywords: post.tags?.join(", ") ?? "Blog post by Oliver",
     openGraph: {
-      images: ["/assets/the-frame-extraction-project/website.png"],
+      images: [post.previewImage],
     },
   };
 }
