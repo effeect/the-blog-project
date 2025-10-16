@@ -29,7 +29,6 @@ export function getSortedPosts() {
 
     // Read markdown file as string
     const fullPath = path.join(postsDir, fileName);
-    console.log(fullPath);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // Using the gray matter module to grab the file contents for the metadata!
