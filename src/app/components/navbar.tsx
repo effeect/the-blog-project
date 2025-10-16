@@ -70,17 +70,23 @@ export default function Navbar() {
                     href={href}
                     className="items-center justify-center inline-flex transition-colors duration-300 hover:text-indigo-600"
                   >
-                    {icon ? (
+                    {/* Show label on mobile (hamburger mode) */}
+                    <span className="md:hidden">{label}</span>
+
+                    {/* Show icon on desktop */}
+                    {icon && (
                       <Image
                         src={icon}
                         alt={`${label} icon`}
-                        width={12}
-                        height={12}
-                        className="inline-block hover:scale-150 transition-transform"
+                        width={16}
+                        height={16}
+                        className="hidden md:inline-block hover:scale-150 transition-transform py-0
+                        duration-300"
                       />
-                    ) : (
-                      label
                     )}
+
+                    {/* Show label if no icon, always */}
+                    {!icon && <span>{label}</span>}
                   </Link>
 
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>

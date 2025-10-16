@@ -14,7 +14,7 @@ export default function PostsList() {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto px-4 py-10 rounded-lg">
+      <div className="max-w-3xl mx-auto px-4 py-4 rounded-lg bg-black/40 backdrop-blur-sm text-white">
         <h2 className="text-2xl font-semibold mb-6 border-b border-gray-300 pb-2">
           Latest Posts{" "}
         </h2>
