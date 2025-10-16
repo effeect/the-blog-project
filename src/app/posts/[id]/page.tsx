@@ -64,7 +64,7 @@ export default async function PostPage(props: {
       <h2 className="text-xl font-semibold mb-2 text-gray-300">
         {postData.summary ?? "No Summary Available, sorry!"}
       </h2>
-      <p className="text-sm text-gray-500 mb-4">Posted on {postData.date}</p>
+      <p className="text-sm mb-4">Posted on {postData.date}</p>
       {postData.tags?.length && (
         <div className="mt-2">
           {postData.tags.map((tag) => (
