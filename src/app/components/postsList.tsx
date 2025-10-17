@@ -1,3 +1,4 @@
+// This component fetches and displays a list of blog posts with links to individual post pages.
 import { getSortedPosts } from "../lib/posts";
 import Link from "next/link";
 import Date from "../lib/date";
@@ -11,6 +12,8 @@ type PostData = {
 export default function PostsList() {
   // Fetching sorted posts data for the list
   const allPostsData = getSortedPosts() as PostData[];
+  // Only showing the first 4 posts on the main page
+  const displayedPosts = allPostsData.slice(0, 4);
 
   return (
     <>
@@ -20,7 +23,7 @@ export default function PostsList() {
         </h2>
         <ul className="space-y-4">
           {/* Below will loop through the array and create a line item and link item along with it*/}
-          {allPostsData.map(({ id, date, title }) => (
+          {displayedPosts.map(({ id, date, title }) => (
             <li
               className="hover:bg-gray-500 transition-colors rounded-md p-4"
               key={id}
