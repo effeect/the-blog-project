@@ -3,7 +3,7 @@ title: "LibreHardware Monitor CLI Introduction"
 date: "2025-10-30"
 tags: ["Python", "Windows", "Dev"]
 summary: "A brief introduction to the LibreHardware Monitor CLI project based in Python"
-previewImage: "/assets/libre-hardware-monitor-cli-intro/sensor_data.png"
+previewImage: "/assets/libre_hardware_monitor_cli_intro/sensor_data.png"
 ---
 
 Apologies for the lack of updates in the last week or so as I've been on a brief holiday to Hokkaido early on in the week. Anyways, let's crack on.
