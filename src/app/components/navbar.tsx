@@ -49,8 +49,8 @@ export default function Navbar() {
               } absolute top-full left-0 w-full bg-white shadow-md md:static md:flex md:space-x-6 md:bg-transparent md:shadow-none text-gray-700 font-medium md:w-auto`}
             >
               {[
-                { href: "/posts", label: "All Posts" },
-                { href: "/about", label: "About Me" },
+                { href: "/posts", label: "Posts" },
+                { href: "/about", label: "About" },
                 {
                   href: "https://www.linkedin.com/in/oliver-dimes-793b31194/",
                   label: "LinkedIn",

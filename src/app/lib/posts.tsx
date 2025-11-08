@@ -6,14 +6,14 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { visit } from "unist-util-visit";
+import { Node } from "unist";
 
 const postsDir = path.join(process.cwd(), "posts");
-
 type PostData = {
   id: string;
   date: string;
   title: string;
-  // Optional fields
   tags?: string[];
   summary: string;
 };
@@ -24,7 +24,6 @@ export function getSortedPosts() {
 
   // Map array to get all the posts out of the app
   const allPostsData = fileNames.map((fileName) => {
-    //Remove the .md from the file name (so it can become the page point)
     const id = fileName.replace(/\.md$/, "");
 
     // Read markdown file as string
@@ -68,14 +67,14 @@ export async function getPostData(id: string) {
   const fileContents = fs.readFileSync(fullPath, "utf-8");
   const matterResult = matter(fileContents);
 
-  // 🔑 Fix image paths before passing to remark
+  //Fixing image paths, so they can be viewed in Github .mds more easily
   const fixedContent = matterResult.content.replace(
     /!\[(.*?)\]\(\.\.\/public\/(.*?)\)/g,
     "![$1](/$2)"
   );
+
   const processedContent = await remark().use(html).process(fixedContent);
   const contentHtml = processedContent.toString();
-
   return {
     id,
     contentHtml,

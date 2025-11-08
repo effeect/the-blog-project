@@ -32,19 +32,22 @@ body {
   margin-right: auto;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-              0 4px 6px -2px rgba(0, 0, 0, 0.05); /* similar to shadow-lg */
-  max-width: 75%;
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* similar to shadow-lg */
+  max-width: 90%;
   height: auto;
   text-align: center;
 }
 
-/* Remove all conflicting centering from the <em> */
+/* Reset default em styling */
 .prose p > em {
-    /* Do not set display: block, let it be inline content */
-    display: block;
-    /* Remove width and margin controls */
-    max-width: none;
-    margin: 0;
-    /* Remove text-align: center; as the parent <p> does it */
-    text-align: center; 
+  display: inline;
+  text-align: inherit;
+  margin: 0;
+}
+
+/* Center em only when its right next to an image */
+.prose p > img + em {
+  display: block;
+  text-align: center;
+  margin-top: -0.5rem;
 }
