@@ -15,11 +15,11 @@ type PostData = {
   summary?: string;
 };
 
-export default async function PostsPage({
-  searchParams,
-}: {
-  searchParams: { page?: string };
-}) {
+type Props = {
+  searchParams: Promise<{ page?: string }>;
+};
+
+export default async function PostsPage({ searchParams }: Props) {
   const allPostsData = getSortedPosts() as PostData[];
 
   const { page } = await searchParams;
