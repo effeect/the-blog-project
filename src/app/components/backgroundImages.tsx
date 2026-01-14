@@ -20,25 +20,29 @@ export default function BackgroundImages({
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="is-relative">
       {/* Background images */}
-      <div className="absolute inset-0 z-0">
+      <div className="is-overlay" style={{ zIndex: 0 }}>
         {images.map((src, index) => (
           <Image
             key={index}
             src={src}
             alt={`Background ${index}`}
             fill
-            loading="lazy"
-            className={`object-cover transition-opacity duration-1000 ease-in-out ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
+            priority={index === 0} // Load the first image immediately
+            className="object-cover transition-opacity"
+            style={{
+              transitionDuration: "5000ms",
+              opacity: index === currentImageIndex ? 1 : 0,
+            }}
           />
         ))}
       </div>
 
-      {/* Foreground content */}
-      <div className="relative z-10">{children}</div>
+      {/* 3. Foreground Content */}
+      <div className="is-relative" style={{ zIndex: 2 }}>
+        {children}
+      </div>
     </div>
   );
 }

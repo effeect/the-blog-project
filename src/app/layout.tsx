@@ -1,8 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Navbar from "./components/atoms/navbar";
+import Footer from "./components/atoms/footer";
 
+// Importing Bulma CSS Framework, using NPM in this case
+// Could use CDN but the website is mostly static so npm is fine here
+import "bulma/css/bulma.css";
+import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,11 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex flex-col min-h-screen">
-          <Navbar></Navbar>
-          <main className="flex-grow">{children}</main>
-          <Footer></Footer>
-        </div>
+        <Navbar></Navbar>
+        <main className="flex-grow">{children}</main>
+        <Footer></Footer>
       </body>
     </html>
   );
