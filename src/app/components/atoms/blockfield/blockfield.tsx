@@ -22,9 +22,7 @@ export default function BlockField({
       {currentPosts.map(({ id, date, title, tags, summary }) => (
         <div key={id} className={`box mb-5 ${styles.postBox}`}>
           <Link href={`/posts/${id}`} className="is-block">
-            <h3
-              className={`title is-4 is-marginless has-text-white ${styles.hoverUnderline}`}
-            >
+            <h3 className={`title is-4 is-marginless ${styles.hoverUnderline}`}>
               {title}
             </h3>
           </Link>
