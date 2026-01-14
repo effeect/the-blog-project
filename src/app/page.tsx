@@ -14,6 +14,7 @@ export default async function Home() {
   return (
     <>
       <title>oliverdimes.dev - Home</title>
+      <div className="mb-20"></div>
       <HeroHeader images={images}></HeroHeader>
     </>
   );

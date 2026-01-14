@@ -9,8 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
     "@tailwindcss/oxide": "^4.1.13",
     "autoprefixer": "^10.4.21",
+    "bulma": "^1.0.4",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "lightningcss": "^1.30.1",

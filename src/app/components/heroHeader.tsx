@@ -7,45 +7,58 @@ import Link from "next/link";
 // Loading Images links from above
 export default function HeroHeader({ images }: { images: string[] }) {
   return (
-    <section className="relative overflow-hidden">
+    <section className="hero is-fullheight is-relative">
       <BackgroundImages images={images}>
-        <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 py-4">
-          {/* Circular Profile Image */}
-          <Image
-            src="/profile.jpeg"
-            alt="Oliver's profile"
-            width={128}
-            height={128}
-            loading="lazy"
-            className="rounded-full object-cover border-4 border-white shadow-lg"
-          />
-          <div className="w-32 h-2 mb-6 relative"></div>
-          <h1 className="hover:scale-110 transition-transform text-4xl md:text-6xl font-bold text-white mb-6">
-            Welcome to my Blog!
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
-            Explore my latest projects, thoughts on development, and technical
-            deep dives.
-          </p>
-          <div className="flex gap-4 py-4 mb-8">
-            <Link
-              href="/posts"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition"
-            >
-              View Posts
-            </Link>
-            <Link
-              href="/about"
-              className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-3 px-6 rounded-lg transition"
-            >
-              About Me
-            </Link>
-          </div>
-          <PostsList></PostsList>
-        </div>
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            {/* 1. Circular Profile Image */}
+            <div className="is-flex is-justify-content-center mb-5">
+              <figure className="image is-128x128">
+                <Image
+                  src="/profile.jpeg"
+                  alt="Oliver's profile"
+                  width={128}
+                  height={128}
+                  className="is-rounded"
+                  style={{
+                    border: "4px solid white",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                    objectFit: "cover",
+                  }}
+                />
+              </figure>
+            </div>
 
-        {/* You can replace this with an image, buttons, or anything else */}
+            {/* 2. Heading with Hover Effect */}
+            <h1 className="title is-1 has-text-white mb-6 animate-hover">
+              Welcome to my Blog!
+            </h1>
+
+            {/* 3. Subtitle */}
+            <p className="subtitle is-4 has-text-grey-lighter is-max-desktop mx-auto mb-6">
+              Explore my latest projects, thoughts on development, and technical
+              deep dives.
+            </p>
+
+            {/* 4. Buttons */}
+            <div className="buttons is-centered py-4">
+              <Link href="/posts" className="button is-link is-large">
+                <strong>View Posts</strong>
+              </Link>
+              <Link href="/about" className="button is-light is-large">
+                About Me
+              </Link>
+            </div>
+
+            {/* 5. Content List */}
+            <div className="mt-6">
+              <PostsList />
+            </div>
+          </div>
+        </div>
       </BackgroundImages>
+
+      {/* Custom CSS for the scale effect */}
     </section>
   );
 }

@@ -17,29 +17,43 @@ export default function PostsList() {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto px-4 py-4 rounded-lg bg-black/40 backdrop-blur-sm text-white">
-        <h2 className="text-2xl font-semibold mb-6 border-b border-gray-300 pb-2">
-          Latest Posts{" "}
-        </h2>
-        <ul className="space-y-4">
-          {/* Below will loop through the array and create a line item and link item along with it*/}
-          {displayedPosts.map(({ id, date, title }) => (
-            <li
-              className="hover:bg-gray-500 transition-colors rounded-md p-4"
-              key={id}
-            >
-              <Link href={`/posts/${id}`}>
-                {" "}
-                <h3 className="text-lg font-medium text-white hover:underline">
-                  {title}
-                </h3>
-              </Link>
+      <div className="container is-max-desktop px-4 py-4">
+        {/* Custom tinted box */}
+        <div
+          className="box has-text-white"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            backdropFilter: "blur(8px)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            borderRadius: "8px",
+          }}
+        >
+          <h2
+            className="title is-4 has-text-white mb-5 pb-2"
+            style={{ borderBottom: "1px solid rgba(255,255,255,0.3)" }}
+          >
+            Latest Posts
+          </h2>
 
-              <label>Posted on </label>
-              <Date dateString={date}></Date>
-            </li>
-          ))}
-        </ul>
+          <ul className="block">
+            {displayedPosts.map(({ id, date, title }) => (
+              <li key={id} className="post-item-wrapper mb-2">
+                <Link
+                  href={`/posts/${id}`}
+                  className="is-block p-4 rounded-transition"
+                >
+                  <h3 className="subtitle is-5 has-text-white mb-1 is-underlined-hover">
+                    {title}
+                  </h3>
+                  <div className="is-size-7 has-text-grey-light">
+                    <span>Posted on </span>
+                    <Date dateString={date} />
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
