@@ -6,6 +6,13 @@ import { getSortedPosts } from "../lib/posts";
 import BlockField from "../components/atoms/blockfield";
 import PageControls from "../components/atoms/pagecontrols";
 
+type PostData = {
+  id: string;
+  date: string;
+  title: string;
+  tags?: string[];
+  summary?: string;
+};
 type Props = {
   searchParams: Promise<{ page?: string }>;
 };
