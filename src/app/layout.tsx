@@ -5,7 +5,7 @@ import Footer from "./components/atoms/footer";
 // Importing Bulma CSS Framework, using NPM in this case
 // Could use CDN but the website is mostly static so npm is fine here
 import "bulma/css/bulma.css";
-
+import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

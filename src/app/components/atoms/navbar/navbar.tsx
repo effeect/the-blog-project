@@ -1,7 +1,7 @@
 "use client";
 //Simple Navbar component for the blog/portfolio website
 import Link from "next/link";
-
+import styles from "./navbar.module.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,10 +16,10 @@ export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav className={`navbar`} role="navigation" aria-label="main navigation">
         <div className="container">
           <div className="navbar-brand">
-            <Link href="/" className="navbar-item">
+            <Link href="/" className={`navbar-item ${styles.logoText}`}>
               oliverdimes.dev
             </Link>
 
@@ -48,17 +48,23 @@ export default function Navbar() {
                 About
               </Link>
               {/* 4. Icon Link 1 (GitHub) */}
-              <a href="#" className="navbar-item">
+              <a href="https://github.com/effeect" className="navbar-item">
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} />
                 </span>
               </a>
-              <a href="#" className="navbar-item">
+              <a
+                href="https://www.linkedin.com/in/oliver-dimes-793b31194/"
+                className="navbar-item"
+              >
                 <span className="icon">
                   <FontAwesomeIcon icon={faLinkedin} />
                 </span>
               </a>
-              <a href="#" className="navbar-item">
+              <a
+                href="https://bsky.app/profile/effeect.bsky.social"
+                className="navbar-item"
+              >
                 <span className="icon">
                   <FontAwesomeIcon icon={faBluesky} />
                 </span>

@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import { getAllPostIds, getPostData } from "@/app/lib/posts";
-import { Metadata } from "next";
-
-// ✅ Type definition for PostData (used only to suppress the previous ESLint warning,
-//    but you should use it for type safety of post variables if possible)
+import Date from "@/app/lib/date";
+import "highlight.js/styles/github-dark.css";
+// Define the post data type for safe use
 type PostData = {
   id: string;
   date: string;
@@ -58,31 +57,45 @@ export default async function PostPage(props: {
 
   if (!postData || !postData.contentHtml) return notFound();
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 text-white-800">
-      {/* Title and Date Section */}
-      <h1 className="text-5xl font-bold mb-6">{postData.title}</h1>
-      <h2 className="text-xl font-semibold mb-2 text-gray-300">
-        {postData.summary ?? "No Summary Available, sorry!"}
-      </h2>
-      <p className="text-sm mb-4">Posted on {postData.date}</p>
-      {postData.tags?.length && (
-        <div className="mt-2">
-          {postData.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded-full mr-2 hover:bg-amber-700"
-            >
-              {tag}
+    <section className="section">
+      <div className="container is-max-desktop">
+        {/* Title and Date Section */}
+        <header className="mb-6">
+          <h1 className="title is-1">{postData.title}</h1>
+          <h2 className="subtitle is-4 mt-2">
+            {postData.summary ?? "No Summary Available, sorry!"}
+          </h2>
+
+          <div className="is-flex is-align-items-center is-size-7 ">
+            <span className="mr-2">
+              Posted on{" "}
+              <strong>
+                <Date dateString={postData.date} />
+              </strong>
             </span>
-          ))}
-        </div>
-      )}
-      <hr className="my-6 border-gray-300" />
-      {/* Post Content Section. This is where all the post content goes */}
-      <div
-        className="prose dark:prose-invert min-h-[500px] max-w-5xl"
-        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-      />
-    </div>
+          </div>
+
+          {postData.tags?.length && (
+            <div className="tags mt-4">
+              {postData.tags.map((tag) => (
+                <span key={tag} className="tag is-link is-rounded is-light">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <hr className="has-background-grey-dark" />
+
+        {/* Post Content Section */}
+        {/* The "content" class is Bulma's equivalent to Tailwind's "prose" */}
+        <div
+          className="content is-medium"
+          style={{ minHeight: "500px" }}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
+      </div>
+    </section>
   );
 }

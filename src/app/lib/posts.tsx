@@ -6,9 +6,13 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeHighlight from "rehype-highlight";
+import rehypeStringify from "rehype-stringify";
+import { unified } from "unified";
 import { visit } from "unist-util-visit";
-import { Node } from "unist";
-
+import { Root, Element, ElementContent, Text } from "hast";
 const postsDir = path.join(process.cwd(), "posts");
 type PostData = {
   id: string;
@@ -73,7 +77,57 @@ export async function getPostData(id: string) {
     "![$1](/$2)"
   );
 
-  const processedContent = await remark().use(html).process(fixedContent);
+  // Thanks for Gemini for solving explaining what each one does!
+  const processedContent = await unified()
+    .use(remarkParse) // Convert Markdown string to syntax tree (mdast)
+    .use(remarkRehype) // Convert mdast to HTML syntax tree (hast)
+    .use(() => (tree: Root) => {
+      visit(tree, "element", (node: Element) => {
+        // Look for paragraphs that contain images
+        if (node.tagName === "p") {
+          const imgIndex = node.children.findIndex(
+            (child): child is Element =>
+              child.type === "element" && child.tagName === "img"
+          );
+
+          if (imgIndex !== -1) {
+            const imgNode = node.children[imgIndex] as Element;
+
+            // Look for a following 'em' tag (the caption)
+            const emNode = node.children.find(
+              (child): child is Element =>
+                child.type === "element" && child.tagName === "em"
+            );
+
+            // Transform the <p> into a Bulma <figure>
+            node.tagName = "figure";
+            node.properties = {
+              ...node.properties,
+              className: ["image", "has-text-centered", "mb-6", "mx-auto"],
+            };
+
+            // Style the image
+            imgNode.properties = {
+              ...imgNode.properties,
+              className: ["is-inline-block"],
+            };
+
+            // Transform <em> into <figcaption>
+            if (emNode) {
+              emNode.tagName = "figcaption";
+              emNode.properties = {
+                ...emNode.properties,
+                className: ["has-text-grey", "mt-2", "is-italic"],
+              };
+            }
+          }
+        }
+      });
+    })
+    .use(rehypeHighlight) // Find code blocks and inject highlight.js classes
+    .use(rehypeStringify) // Convert hast back to a string of HTML
+    .process(fixedContent);
+
   const contentHtml = processedContent.toString();
   return {
     id,
