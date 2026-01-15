@@ -32,8 +32,6 @@ export async function generateMetadata(props: {
     post.previewImage = "/default-preview.png";
   }
 
-  console.log(post.previewImage);
-
   return {
     metadataBase: new URL("https://oliverdimes.dev"),
     alternates: {

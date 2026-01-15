@@ -47,22 +47,33 @@ export default function Navbar() {
             <div className="navbar-start">{/* 2. Text Link 1 */}</div>
 
             <div className="navbar-end">
-              <Link href="/posts" className="navbar-item" onClick={closeMenu}>
+              <Link
+                href="/posts"
+                className={`navbar-item ${styles.itemHover}`}
+                onClick={closeMenu}
+              >
                 Posts
               </Link>
               {/* 3. Text Link 2 */}
-              <Link href="/about" className="navbar-item" onClick={closeMenu}>
+              <Link
+                href="/about"
+                className={`navbar-item ${styles.itemHover}`}
+                onClick={closeMenu}
+              >
                 About
               </Link>
               {/* 4. Icon Link 1 (GitHub) */}
-              <a href="https://github.com/effeect" className="navbar-item">
+              <a
+                href="https://github.com/effeect"
+                className={`navbar-item ${styles.itemHover}`}
+              >
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} />
                 </span>
               </a>
               <a
                 href="https://www.linkedin.com/in/oliver-dimes-793b31194/"
-                className="navbar-item"
+                className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faLinkedin} />
@@ -70,7 +81,7 @@ export default function Navbar() {
               </a>
               <a
                 href="https://bsky.app/profile/effeect.bsky.social"
-                className="navbar-item"
+                className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faBluesky} />
