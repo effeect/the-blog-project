@@ -2,11 +2,23 @@
   background-color: #fd0000;
   border-bottom: 1px solid #dbdbdb;
 }
+
+.logoText {
+  font-weight: bold;
+  font-size: 2rem;
+  transition: transform 0.2s ease;
+}
+
 .logoText:hover {
   transform: translateX(+2px);
-  /* scale: 1.05; */
-  /* background-color: relative; */
+  color: #128fe2;
 }
+
+.itemHover:hover {
+  color: #128fe2;
+  /* transform: translateX(+2px); */
+}
+
 .navbar-burger {
   color: #4a4a4a;
 }

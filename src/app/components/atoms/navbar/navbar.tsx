@@ -12,6 +12,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 //Special thanks to https://codesandbox.io/p/sandbox/link-hover-t2rxxv?file=%2Findex.html%3A11%2C1-22%2C11&from-embed for the hover effect inspiration
 export default function Navbar() {
+  const closeMenu = () => {
+    setIsActive(false);
+  };
   // Define States
   const [isActive, setIsActive] = useState(false);
   return (
@@ -19,7 +22,11 @@ export default function Navbar() {
       <nav className={`navbar`} role="navigation" aria-label="main navigation">
         <div className="container">
           <div className="navbar-brand">
-            <Link href="/" className={`navbar-item ${styles.logoText}`}>
+            <Link
+              href="/"
+              className={`navbar-item ${styles.logoText}`}
+              onClick={closeMenu}
+            >
               oliverdimes.dev
             </Link>
 
@@ -40,22 +47,33 @@ export default function Navbar() {
             <div className="navbar-start">{/* 2. Text Link 1 */}</div>
 
             <div className="navbar-end">
-              <Link href="/posts" className="navbar-item">
+              <Link
+                href="/posts"
+                className={`navbar-item ${styles.itemHover}`}
+                onClick={closeMenu}
+              >
                 Posts
               </Link>
               {/* 3. Text Link 2 */}
-              <Link href="/about" className="navbar-item">
+              <Link
+                href="/about"
+                className={`navbar-item ${styles.itemHover}`}
+                onClick={closeMenu}
+              >
                 About
               </Link>
               {/* 4. Icon Link 1 (GitHub) */}
-              <a href="https://github.com/effeect" className="navbar-item">
+              <a
+                href="https://github.com/effeect"
+                className={`navbar-item ${styles.itemHover}`}
+              >
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} />
                 </span>
               </a>
               <a
                 href="https://www.linkedin.com/in/oliver-dimes-793b31194/"
-                className="navbar-item"
+                className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faLinkedin} />
@@ -63,7 +81,7 @@ export default function Navbar() {
               </a>
               <a
                 href="https://bsky.app/profile/effeect.bsky.social"
-                className="navbar-item"
+                className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faBluesky} />

@@ -1,7 +1,7 @@
 // This component fetches and displays a list of blog posts with links to individual post pages.
-import { getSortedPosts } from "../lib/posts";
+import { getSortedPosts } from "@/app/lib/posts";
 import Link from "next/link";
-import Date from "../lib/date";
+import Date from "@/app/lib/date";
 
 type PostData = {
   id: string;
@@ -9,12 +9,12 @@ type PostData = {
   title: string;
 };
 
-export default function PostsList() {
+// This component is meant for the homepage to show the latest
+export default function LatestPostList() {
   // Fetching sorted posts data for the list
   const allPostsData = getSortedPosts() as PostData[];
-  // Only showing the first 4 posts on the main page
-  const displayedPosts = allPostsData.slice(0, 4);
-
+  // Only showing the first 5 posts on the main page
+  const displayedPosts = allPostsData.slice(0, 5);
   return (
     <>
       <div className="container is-max-desktop px-4 py-4">
