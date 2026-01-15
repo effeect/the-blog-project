@@ -1,3 +1,4 @@
+// Footer component for the bottom of the website, shows up on every page
 import Link from "next/link";
 
 export default function Footer() {

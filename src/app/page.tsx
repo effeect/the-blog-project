@@ -2,7 +2,8 @@
 import fs from "fs";
 import path from "path";
 // Custom Imports
-import HeroHeader from "./components/heroHeader";
+// import HeroHeader from "./components/heroHeader";
+import HeroHeader from "./components/organism/heroheader";
 
 export default async function Home() {
   const imageDir = path.join(process.cwd(), "public/hero_header");
@@ -14,7 +15,7 @@ export default async function Home() {
   return (
     <>
       <title>oliverdimes.dev - Home</title>
-      <div className="mb-20"></div>
+      {/* Hero Image Header entry point */}
       <HeroHeader images={images}></HeroHeader>
     </>
   );
