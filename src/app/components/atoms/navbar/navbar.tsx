@@ -54,21 +54,13 @@ export default function Navbar() {
               >
                 Posts
               </Link>
-              {/* 3. Text Link 2 */}
-              <Link
-                href="/about"
-                className={`navbar-item ${styles.itemHover}`}
-                onClick={closeMenu}
-              >
-                About
-              </Link>
               {/* 4. Icon Link 1 (GitHub) */}
               <a
                 href="https://github.com/effeect"
                 className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
-                  <FontAwesomeIcon icon={faGithub} />
+                  <FontAwesomeIcon icon={faGithub} size="lg" />
                 </span>
               </a>
               <a
@@ -76,7 +68,7 @@ export default function Navbar() {
                 className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
-                  <FontAwesomeIcon icon={faLinkedin} />
+                  <FontAwesomeIcon icon={faLinkedin} size="lg" />
                 </span>
               </a>
               <a
@@ -84,7 +76,7 @@ export default function Navbar() {
                 className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
-                  <FontAwesomeIcon icon={faBluesky} />
+                  <FontAwesomeIcon icon={faBluesky} size="lg" />
                 </span>
               </a>
             </div>
