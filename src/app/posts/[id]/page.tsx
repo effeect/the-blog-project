@@ -39,7 +39,7 @@ export async function generateMetadata(props: {
     },
     title: `oliverdimes.dev - ${post.title}`,
     description: post.summary ?? `A post about ${post.tags?.join(", ")}`,
-    keywords: post.tags?.join(", ") ?? "Blog post by Oliver",
+    keywords: post.tags?.join(", ") ?? "Blog post by Oliver Dimes",
     openGraph: {
       images: [post.previewImage],
     },

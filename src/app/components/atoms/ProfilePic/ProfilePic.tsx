@@ -11,8 +11,7 @@ const ProfilePic = () => {
           height={128}
           className="is-rounded"
           style={{
-            border: "4px solid white",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+            border: "1px solid white",
             objectFit: "cover",
           }}
         />

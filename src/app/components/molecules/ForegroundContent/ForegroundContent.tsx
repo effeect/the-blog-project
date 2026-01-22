@@ -11,10 +11,10 @@ const ForegroundContent = () => {
         <ProfilePic />
 
         <h1 className="title is-1 has-text-white mb-2 animate-hover">
-          Welcome to the blog project
+          Welcome to my blog!
         </h1>
         <p className="subtitle is-4 has-text-grey-lighter is-max-desktop mx-auto mb-6">
-          Posts about software dev, personal projects, and more.
+          Posts about development, personal projects, and more.
         </p>
 
         <div className="buttons is-centered py-2">

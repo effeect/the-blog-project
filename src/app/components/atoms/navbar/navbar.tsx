@@ -4,12 +4,14 @@ import Link from "next/link";
 import styles from "./navbar.module.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
-  faXTwitter,
   faBluesky,
+  faMailchimp,
 } from "@fortawesome/free-brands-svg-icons";
+import { FaSymbol } from "@fortawesome/fontawesome-svg-core";
 //Special thanks to https://codesandbox.io/p/sandbox/link-hover-t2rxxv?file=%2Findex.html%3A11%2C1-22%2C11&from-embed for the hover effect inspiration
 export default function Navbar() {
   const closeMenu = () => {
@@ -45,7 +47,6 @@ export default function Navbar() {
           </div>
           <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
             <div className="navbar-start">{/* 2. Text Link 1 */}</div>
-
             <div className="navbar-end">
               <Link
                 href="/posts"
@@ -78,6 +79,11 @@ export default function Navbar() {
                 <span className="icon">
                   <FontAwesomeIcon icon={faBluesky} size="lg" />
                 </span>
+              </a>
+              <a href="effeect-contact@pm.me" className="navbar-item">
+                <button className=" button is-info">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </button>
               </a>
             </div>
           </div>

@@ -16,13 +16,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "oliverdimes.dev",
-  description: "Blog/Portfolio Website for a software developer.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{

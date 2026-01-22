@@ -14,9 +14,23 @@ export default async function Home() {
 
   return (
     <>
-      <title>oliverdimes.dev - Home</title>
       {/* Hero Image Header entry point */}
       <HeroHeader images={images}></HeroHeader>
     </>
   );
 }
+
+// Creates metadata for the HomePage
+// Is a static homepage so doesn't need any specific updating
+export const metadata = {
+  metadataBase: new URL("https://oliverdimes.dev"),
+  alternates: {
+    canonical: "/",
+  },
+  title: `oliverdimes.dev - Home`,
+  description: `Personal Blog/Portfolio for Oliver Dimes, development stuff, personal projects and more`,
+  keywords: "Blog",
+  openGraph: {
+    images: ["/hero_header/1.jpeg"],
+  },
+};
