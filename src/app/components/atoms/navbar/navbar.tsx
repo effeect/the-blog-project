@@ -80,7 +80,7 @@ export default function Navbar() {
                   <FontAwesomeIcon icon={faBluesky} size="lg" />
                 </span>
               </a>
-              <a href="effeect-contact@pm.me" className="navbar-item">
+              <a href="mailto:effeect-contact@pm.me" className="navbar-item">
                 <button className=" button is-info">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </button>
