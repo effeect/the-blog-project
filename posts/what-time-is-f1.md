@@ -2,7 +2,7 @@
 title: "Writing a next.js static website to show the F1 event time"
 date: "2026-02-12"
 tags: ["React", "Nextjs", "REST"]
-summary: "With the upcoming 2026 season coming up, wanted to create a quick way to show the time for F1 without having to navigate through articles and complexity"
+summary: "With the upcoming 2026 season coming up, wanted to create a quick way to show the time for F1 without having to navigate through ad-riddled articles"
 previewImage: "/assets/whattimeisf1/image.png"
 ---
 
