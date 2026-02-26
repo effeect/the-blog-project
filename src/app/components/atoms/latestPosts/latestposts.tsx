@@ -2,6 +2,7 @@
 import { getSortedPosts } from "@/app/lib/posts";
 import Link from "next/link";
 import Date from "@/app/lib/date";
+import styles from "./latestPosts.module.css";
 
 type PostData = {
   id: string;
@@ -19,33 +20,23 @@ export default function LatestPostList() {
     <>
       <div className="container is-max-desktop px-4 py-4">
         {/* Custom tinted box */}
-        <div
-          className="box has-text-white"
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
-            backdropFilter: "blur(8px)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-          }}
-        >
+        <div className={`box has-text-white ${styles.boxBlur}`}>
           <h2
-            className="title is-4 has-text-white mb-5 pb-2"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.3)" }}
+            className="title is-3 pb-2"
+            style={{ borderBottom: "1px solid rgb(255, 255, 255)" }}
           >
             Latest Posts
           </h2>
 
           <ul className="block">
             {displayedPosts.map(({ id, date, title }) => (
-              <li key={id} className="post-item-wrapper mb-2">
+              <li key={id} className={`mb-2`}>
                 <Link
                   href={`/posts/${id}`}
-                  className="is-block p-4 rounded-transition"
+                  className={`${styles.itemHover} is-block p-4`}
                 >
-                  <h3 className="subtitle is-5 has-text-white mb-1 is-underlined-hover">
-                    {title}
-                  </h3>
-                  <div className="is-size-7 has-text-grey-light">
+                  <h3 className="title is-5 mb-1">{title}</h3>
+                  <div className="is-subtitle-7">
                     <span>Posted on </span>
                     <Date dateString={date} />
                   </div>
