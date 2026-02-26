@@ -16,20 +16,20 @@
 
 .itemHover:hover {
   color: #128fe2;
-  transform: scale(1.1);
-  transition: transform 0.4s ease;
+  /* transform: scale(1.1);
+  transition: transform 0.4s ease; */
 }
 
 .itemHover_linkedin:hover {
   color: #0a66c2;
-  transform: scale(1.1);
-  transition: transform 0.4s ease;
+  /* transform: scale(1.1);
+  transition: transform 0.4s ease; */
 }
 
 .itemHover_white:hover {
   color: #fafbfc;
-  transform: scale(1.1);
-  transition: transform 0.4s ease;
+  /* transform: scale(1.1);
+  transition: transform 0.4s ease; */
 }
 
 .navbar-burger {
