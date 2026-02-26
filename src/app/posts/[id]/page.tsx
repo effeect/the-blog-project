@@ -24,6 +24,8 @@ export async function generateMetadata(props: {
   const params = await props.params;
   const id = params.id;
   const post = (await getPostData(id)) as PostData;
+  // FOr the Canonical URL, using the Post ID
+  const url = `https://oliverdimes.dev/posts/${id}`;
 
   if (!post) return { title: "Post Not Found" };
 
@@ -35,12 +37,19 @@ export async function generateMetadata(props: {
   return {
     metadataBase: new URL("https://oliverdimes.dev"),
     alternates: {
-      canonical: "/",
+      canonical: url,
     },
     title: `oliverdimes.dev - ${post.title}`,
     description: post.summary ?? `A post about ${post.tags?.join(", ")}`,
     keywords: post.tags?.join(", ") ?? "Blog post by Oliver Dimes",
     openGraph: {
+      title: post.title ?? "No title given",
+      description: post.summary ?? "No summary given",
+      url: url,
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Oliver Dimes"],
+      siteName: "oliverdimes.dev",
       images: [post.previewImage],
     },
   };
