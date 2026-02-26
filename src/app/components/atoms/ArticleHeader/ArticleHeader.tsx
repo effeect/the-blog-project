@@ -10,7 +10,7 @@ const ArticleHeader = ({ postData }: { postData: PostData }) => {
         {postData.summary ?? "No Summary Available, sorry!"}
       </h2>
 
-      <div className="is-flex is-align-items-center is-size-7 ">
+      <div className="is-flex is-align-items-center is-size-5 ">
         <span className="mr-2">
           Posted on{" "}
           <strong>
@@ -22,7 +22,7 @@ const ArticleHeader = ({ postData }: { postData: PostData }) => {
       {postData.tags?.length && (
         <div className="tags mt-4">
           {postData.tags.map((tag) => (
-            <span key={tag} className="tag is-link is-rounded is-light">
+            <span key={tag} className="tag is-link is-rounded ">
               {tag}
             </span>
           ))}

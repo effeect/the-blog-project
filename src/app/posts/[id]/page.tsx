@@ -68,7 +68,6 @@ export default async function PostPage(props: {
       <div className="container is-max-desktop">
         {/* Title and Date Section */}
         <ArticleHeader postData={postData} />
-
         <hr className="has-background-grey-dark" />
 
         {/* Post Content Section */}
