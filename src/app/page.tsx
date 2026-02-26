@@ -1,8 +1,6 @@
 // For reading the home carosel images directory
 import fs from "fs";
 import path from "path";
-// Custom Imports
-// import HeroHeader from "./components/heroHeader";
 import HeroHeader from "./components/organism/heroheader";
 
 export default async function Home() {

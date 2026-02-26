@@ -47,7 +47,7 @@ export default function Navbar() {
             <div className="navbar-end">
               <Link
                 href="/posts"
-                className={`navbar-item mr-4 ${styles.itemHover}`}
+                className={`navbar-item ${styles.noHover} mr-4 ${styles.itemHover}`}
                 onClick={closeMenu}
               >
                 <strong>Posts</strong>
@@ -55,7 +55,7 @@ export default function Navbar() {
               {/* Github Icon */}
               <Link
                 href="https://github.com/effeect"
-                className={`navbar-item ${styles.itemHover_white}`}
+                className={`navbar-item ${styles.noHover} ${styles.itemHover_white}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} size="lg" />
@@ -64,7 +64,7 @@ export default function Navbar() {
               {/* LinkedIn Icon */}
               <Link
                 href="https://www.linkedin.com/in/oliver-dimes-793b31194/"
-                className={`navbar-item ${styles.itemHover_linkedin}`}
+                className={`navbar-item ${styles.noHover} ${styles.itemHover_linkedin}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faLinkedin} size="lg" />
@@ -73,15 +73,18 @@ export default function Navbar() {
               {/* Bluesky Icon*/}
               <Link
                 href="https://bsky.app/profile/effeect.bsky.social"
-                className={`navbar-item ${styles.itemHover}`}
+                className={`navbar-item ${styles.noHover} ${styles.itemHover}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faBluesky} size="lg" />
                 </span>
               </Link>
               {/* Email Icon */}
-              <Link href="mailto:effeect-contact@pm.me" className="navbar-item">
-                <button className=" button is-primary">
+              <Link
+                href="mailto:effeect-contact@pm.me"
+                className={`navbar-item ${styles.noHover}`}
+              >
+                <button className={`button is-primary`}>
                   <FontAwesomeIcon icon={faEnvelope} />
                 </button>
               </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const ProfilePic = () => {
   return (
-    <div className="is-flex is-justify-content-center mb-5">
+    <div className="is-flex is-justify-content-center mb-2">
       <figure className="image is-128x128">
         <Image
           src="/profile.jpeg"

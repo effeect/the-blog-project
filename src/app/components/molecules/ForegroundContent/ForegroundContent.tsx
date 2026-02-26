@@ -11,22 +11,23 @@ const ForegroundContent = () => {
         <ProfilePic />
 
         <h1 className="title is-1 has-text-white mb-2 animate-hover">
-          Welcome to my blog!
+          oliverdimes.dev
         </h1>
-        <p className="subtitle is-4 has-text-grey-lighter is-max-desktop mx-auto mb-6">
-          Posts about development, personal projects, and more.
+        <p className="subtitle is-4 has-text-grey-lighter is-max-desktop mx-auto mb-2">
+          Posts about development, personal projects and computing related
+          topics.
         </p>
-
+        {/* Buttons at the center here*/}
         <div className="buttons is-centered py-2">
-          <Link href="/posts" className="button is-link is-large">
-            <strong>View Posts</strong>
+          <Link href="/posts" className="button  is-large">
+            All Posts
           </Link>
           <Link href="/about" className="button is-light is-large">
             About Me
           </Link>
         </div>
-
-        <div className="mt-6">
+        {/* Latest posts section */}
+        <div className="mt-2">
           <LatestPostList />
         </div>
       </div>
