@@ -16,7 +16,14 @@
 
 .itemHover:hover {
   color: #128fe2;
-  /* transform: translateX(+2px); */
+}
+
+.itemHover_linkedin:hover {
+  color: #0a66c2;
+}
+
+.itemHover_white:hover {
+  color: #fafbfc;
 }
 
 .navbar-burger {

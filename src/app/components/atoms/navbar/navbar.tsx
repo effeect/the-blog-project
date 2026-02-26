@@ -9,20 +9,17 @@ import {
   faGithub,
   faLinkedin,
   faBluesky,
-  faMailchimp,
-} from "@fortawesome/free-brands-svg-icons";
-import { FaSymbol } from "@fortawesome/fontawesome-svg-core";
-//Special thanks to https://codesandbox.io/p/sandbox/link-hover-t2rxxv?file=%2Findex.html%3A11%2C1-22%2C11&from-embed for the hover effect inspiration
+} from "@fortawesome/free-brands-svg-icons"; //Special thanks to https://codesandbox.io/p/sandbox/link-hover-t2rxxv?file=%2Findex.html%3A11%2C1-22%2C11&from-embed for the hover effect inspiration
 export default function Navbar() {
   const closeMenu = () => {
     setIsActive(false);
   };
-  // Define States
+  // Define the states above
   const [isActive, setIsActive] = useState(false);
   return (
     <>
       <nav className={`navbar`} role="navigation" aria-label="main navigation">
-        <div className="container">
+        <div className="container my-1">
           <div className="navbar-brand">
             <Link
               href="/"
@@ -50,41 +47,44 @@ export default function Navbar() {
             <div className="navbar-end">
               <Link
                 href="/posts"
-                className={`navbar-item ${styles.itemHover}`}
+                className={`navbar-item mr-4 ${styles.itemHover}`}
                 onClick={closeMenu}
               >
-                Posts
+                <strong>Posts</strong>
               </Link>
-              {/* 4. Icon Link 1 (GitHub) */}
-              <a
+              {/* Github Icon */}
+              <Link
                 href="https://github.com/effeect"
-                className={`navbar-item ${styles.itemHover}`}
+                className={`navbar-item ${styles.itemHover_white}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faGithub} size="lg" />
                 </span>
-              </a>
-              <a
+              </Link>
+              {/* LinkedIn Icon */}
+              <Link
                 href="https://www.linkedin.com/in/oliver-dimes-793b31194/"
-                className={`navbar-item ${styles.itemHover}`}
+                className={`navbar-item ${styles.itemHover_linkedin}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faLinkedin} size="lg" />
                 </span>
-              </a>
-              <a
+              </Link>
+              {/* Bluesky Icon*/}
+              <Link
                 href="https://bsky.app/profile/effeect.bsky.social"
                 className={`navbar-item ${styles.itemHover}`}
               >
                 <span className="icon">
                   <FontAwesomeIcon icon={faBluesky} size="lg" />
                 </span>
-              </a>
-              <a href="mailto:effeect-contact@pm.me" className="navbar-item">
-                <button className=" button is-info">
+              </Link>
+              {/* Email Icon */}
+              <Link href="mailto:effeect-contact@pm.me" className="navbar-item">
+                <button className=" button is-primary">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
