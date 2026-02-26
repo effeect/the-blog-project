@@ -1,0 +1,16 @@
+.boxBlur {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+/* The item hover effect for the latest post on the front page*/
+.itemHover:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+  border-radius: 20px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}

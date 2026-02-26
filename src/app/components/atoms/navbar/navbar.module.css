@@ -16,7 +16,20 @@
 
 .itemHover:hover {
   color: #128fe2;
-  /* transform: translateX(+2px); */
+  /* transform: scale(1.1);
+  transition: transform 0.4s ease; */
+}
+
+.itemHover_linkedin:hover {
+  color: #0a66c2;
+  /* transform: scale(1.1);
+  transition: transform 0.4s ease; */
+}
+
+.itemHover_white:hover {
+  color: #fafbfc;
+  /* transform: scale(1.1);
+  transition: transform 0.4s ease; */
 }
 
 .navbar-burger {
@@ -24,4 +37,9 @@
 }
 .navbar-burger:hover {
   background-color: #f5f5f5;
+}
+
+/* For the navbar item */
+.noHover:hover {
+  background-color: transparent;
 }

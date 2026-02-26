@@ -16,33 +16,32 @@ export default function BlockField({
 }: {
   currentPosts: PostData[];
 }) {
-  //   console.log(currentPosts);
   return (
     <div className="block">
       {currentPosts.map(({ id, date, title, tags, summary }) => (
         <div key={id} className={`box mb-5 ${styles.postBox}`}>
-          <Link href={`/posts/${id}`} className="is-block">
+          <Link href={`/posts/${id}`}>
             <h3 className={`title is-4 is-marginless ${styles.hoverUnderline}`}>
               {title}
             </h3>
-          </Link>
 
-          <p className="is-size-6 mt-2 ">{summary}</p>
+            <p className={`is-size-6 subtitle mt-2`}>{summary}</p>
 
-          <div className="is-flex is-align-items-center mt-3 is-size-7 ">
-            <span className="mr-1">Posted on</span>
-            <Date dateString={date} />
-          </div>
-
-          {tags && tags.length > 0 && (
-            <div className="tags mt-3">
-              {tags.map((tag) => (
-                <span key={tag} className="tag is-link is-rounded">
-                  {tag}
-                </span>
-              ))}
+            <div className="is-flex is-align-items-center is-size-7 subtitle ">
+              <span className="mr-1 ">Posted on</span>
+              <Date dateString={date} />
             </div>
-          )}
+
+            {tags && tags.length > 0 && (
+              <div className="tags mt-3">
+                {tags.map((tag) => (
+                  <span key={tag} className="tag is-link is-rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </Link>
         </div>
       ))}
     </div>

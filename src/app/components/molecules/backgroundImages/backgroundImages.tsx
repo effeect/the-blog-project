@@ -21,7 +21,7 @@ export default function BackgroundImages({
     return () => clearInterval(interval);
   }, []);
   return (
-    <section className="hero is-fullheight is-relative">
+    <section className="hero is-fullheight">
       <div className="is-relative">
         <ImageCarousel images={images} currentImageIndex={currentImageIndex} />
 
