@@ -29,6 +29,6 @@ export const metadata = {
   description: `Personal Blog/Portfolio for Oliver Dimes, development stuff, personal projects and more`,
   keywords: "Blog",
   openGraph: {
-    images: ["/hero_header/1.jpeg"],
+    images: ["/default_preview.png"],
   },
 };
