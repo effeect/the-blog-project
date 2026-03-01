@@ -18,9 +18,8 @@ export const metadata = {
 export default function About() {
   return (
     <>
-      <title>oliverdimes.dev - About Me</title>
       <section className="section">
-        <div className="container mt-10">
+        <div className="hero-body">
           <div className="container is-max-desktop ">
             <h1 className="title">About Me</h1>
             <p className="mb-2">
