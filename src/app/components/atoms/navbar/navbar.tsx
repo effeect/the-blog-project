@@ -82,11 +82,9 @@ export default function Navbar() {
               {/* Email Icon */}
               <Link
                 href="mailto:effeect-contact@pm.me"
-                className={`navbar-item ${styles.noHover}`}
+                className={`navbar-item ${styles.noHover} ${styles.itemHover_white}`}
               >
-                <button className={`button is-primary`}>
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </button>
+                <FontAwesomeIcon icon={faEnvelope} size="lg" />
               </Link>
             </div>
           </div>

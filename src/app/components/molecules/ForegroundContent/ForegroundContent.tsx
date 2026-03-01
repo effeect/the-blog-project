@@ -10,12 +10,12 @@ const ForegroundContent = () => {
         {/* 1. Circular Profile Image */}
         <ProfilePic />
 
-        <h1 className="title is-1 has-text-white mb-2 animate-hover">
+        {/* Title and Subtitle */}
+        <h1 className="title is-2 has-text-white mb-2 animate-hover">
           oliverdimes.dev
         </h1>
-        <p className="subtitle is-4 has-text-grey-lighter is-max-desktop mx-auto mb-2">
-          Posts about development, personal projects and computing related
-          topics.
+        <p className="subtitle is-3 has-text-grey-lighter is-max-desktop mx-auto mb-2">
+          Posts and projects about programming, developement and more!
         </p>
         {/* Buttons at the center here*/}
         <div className="buttons is-centered py-2">
