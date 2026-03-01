@@ -20,13 +20,13 @@ export default function LatestPostList() {
     <>
       <div className="container is-max-desktop px-4 py-4">
         {/* Custom tinted box */}
-        <div className={`box has-text-white ${styles.boxBlur}`}>
-          <h2
-            className="title is-3 pb-2"
-            style={{ borderBottom: "1px solid rgb(255, 255, 255)" }}
-          >
-            Latest Posts
-          </h2>
+        <div className={`box ${styles.boxBlur}`}>
+          <h2 className="title is-3 ">Latest Posts</h2>
+          <p className="subtitle is-5 mb-4">
+            <Link href="/posts" className="has-text-link">
+              View All
+            </Link>
+          </p>
 
           <ul className="block">
             {displayedPosts.map(({ id, date, title }) => (
@@ -36,10 +36,10 @@ export default function LatestPostList() {
                   className={`${styles.itemHover} is-block p-4`}
                 >
                   <h3 className="title is-5 mb-1">{title}</h3>
-                  <div className="is-subtitle-7">
+                  <h3 className="subtitle is-7">
                     <span>Posted on </span>
                     <Date dateString={date} />
-                  </div>
+                  </h3>
                 </Link>
               </li>
             ))}

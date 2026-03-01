@@ -52,6 +52,14 @@ export default function Navbar() {
               >
                 <strong>Posts</strong>
               </Link>
+
+              <Link
+                href="/about"
+                className={`navbar-item ${styles.noHover} mr-4 ${styles.itemHover}`}
+                onClick={closeMenu}
+              >
+                <strong>About Me</strong>
+              </Link>
               {/* Github Icon */}
               <Link
                 href="https://github.com/effeect"
