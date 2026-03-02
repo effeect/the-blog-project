@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/atoms/navbar";
 import Footer from "./components/atoms/footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { Analytics } from "@vercel/analytics/next";
 // Importing Bulma CSS Framework, using NPM in this case
 // Could use CDN but the website is mostly static so npm is fine here
 import "bulma/css/bulma.css";
@@ -29,7 +29,9 @@ export default function RootLayout({
         <Navbar></Navbar>
         <main className="flex-grow">
           {children}
+          {/* Vercel Dashboard Related Things, no need for additional config/params here*/}
           <SpeedInsights />
+          <Analytics />
         </main>
         <Footer></Footer>
       </body>
