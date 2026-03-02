@@ -13,7 +13,7 @@ const ForegroundContent = () => {
         {/* Title and Subtitle */}
         <h1 className="title is-2 mb-2">oliverdimes.dev</h1>
         <p className="subtitle is-3 is-max-desktop mx-auto mb-2">
-          Posts and projects about programming, developement and more!
+          Posts and projects about my development and more!
         </p>
         {/* Buttons at the center here*/}
         {/* <div className="buttons is-centered py-2">
