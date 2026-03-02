@@ -1,7 +1,15 @@
 import { notFound } from "next/navigation";
-import { getAllPostIds, getPostData } from "@/app/lib/posts";
+import {
+  getAllPostIds,
+  getCurrentIndex,
+  getNextAndPrevPosts,
+  getPostData,
+} from "@/app/lib/posts";
 import "highlight.js/styles/github-dark.css";
 import ArticleHeader from "@/app/components/atoms/ArticleHeader/ArticleHeader";
+import Link from "next/link";
+import ContactButtons from "@/app/components/atoms/contactButtons/contactButtons";
+import PostControls from "@/app/components/atoms/PostControls/PostControls";
 // Define the post data type for safe use
 type PostData = {
   id: string;
@@ -24,7 +32,7 @@ export async function generateMetadata(props: {
   const params = await props.params;
   const id = params.id;
   const post = (await getPostData(id)) as PostData;
-  // FOr the Canonical URL, using the Post ID
+  // For the Canonical URL, using the Post ID
   const url = `https://oliverdimes.dev/posts/${id}`;
 
   if (!post) return { title: "Post Not Found" };
@@ -60,8 +68,11 @@ export default async function PostPage(props: {
 }) {
   const params = await props.params;
   const id = params.id;
-  const postData = (await getPostData(id)) as PostData;
 
+  const postData = (await getPostData(id)) as PostData;
+  const nearbyPosts = await getNextAndPrevPosts(id);
+  const currentIndexInfo = await getCurrentIndex(id);
+  console.log(nearbyPosts);
   if (!postData || !postData.contentHtml) return notFound();
   return (
     <section className="section">
@@ -75,6 +86,23 @@ export default async function PostPage(props: {
           className="content is-medium"
           style={{ minHeight: "500px" }}
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
+      </div>
+      <hr />
+      <div className="container is-max-desktop">
+        <div className="content is-medium">
+          Feel free to contact me below with the following methods :{" "}
+        </div>
+        <ContactButtons />
+        <div className="content is-medium">
+          As always, thank you for reading.
+        </div>
+        <PostControls
+          currentPost={id}
+          currentIndex={String(currentIndexInfo.currentIndex)}
+          nextPost={nearbyPosts.nextIndex}
+          prevPost={nearbyPosts.prevIndex}
+          ArrayLength={String(currentIndexInfo.arrayLength - 1)}
         />
       </div>
     </section>

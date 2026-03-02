@@ -1,5 +1,5 @@
 import React from "react";
-
+import ContactButtons from "../components/atoms/contactButtons/contactButtons";
 // Creates metadata for the HomePage
 // Is a static homepage so doesn't need any specific updating
 export const metadata = {
@@ -19,8 +19,8 @@ export default function About() {
   return (
     <>
       <section className="section">
-        <div className="hero-body">
-          <div className="container is-max-desktop ">
+        <div className="container is-max-desktop">
+          <div className="content is-medium" style={{ minHeight: "500px" }}>
             <h1 className="title">About Me</h1>
             <p className="mb-2">
               <strong>Hello there!</strong>, welcome to my personal blog and
@@ -49,11 +49,11 @@ export default function About() {
               a Docker container which is a good thing to do
             </p>
             <p className="mb-2">
-              If you want to get in touch with me, you can find contact me on
-              LinkedIn or Email me with the link in the taskbar above. Thank you
-              very much for reading.
+              If you want to get in touch with me, you can contact me with the
+              following contact links!
             </p>
           </div>
+          <ContactButtons> </ContactButtons>
         </div>
       </section>
     </>

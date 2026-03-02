@@ -52,6 +52,42 @@ export function getSortedPosts() {
   });
 }
 
+export function getCurrentIndex(id: string) {
+  const data = getSortedPosts();
+  const current_id = id;
+  // Returns the current index of the page being generated
+  const current = data.findIndex(({ id }) => id == current_id);
+  return { currentIndex: current, arrayLength: data.length };
+}
+
+// For next and Previous navigation of the site
+export function getNextAndPrevPosts(id: string) {
+  const data = getSortedPosts();
+  const current_id = id;
+  // Returns the current index of the page being generated
+  const current = data.findIndex(({ id }) => id == current_id);
+  // Returning the next and the previous index
+  const prevIndex = () => {
+    if (current == data.length - 1) {
+      return data[current].id;
+    } else {
+      return data[current + 1].id;
+    }
+  };
+  const nextIndex = () => {
+    if (current == 0) {
+      return data[current].id;
+    } else {
+      return data[current - 1].id;
+    }
+  };
+
+  return {
+    prevIndex: prevIndex(),
+    nextIndex: nextIndex(),
+  };
+}
+
 // Returns all the post_ids available in the posts directory
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDir);
