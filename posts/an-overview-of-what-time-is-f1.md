@@ -224,7 +224,7 @@ There are a few quirks with this that I’d love to delve into, but the overall 
 ![](../public/assets/what-time-is-f1-next/grand_prix.png)
 _View of the Website running locally on my machine, we have information at the top declaring the race event, the circuit name and most importantly a table which contains a list of events_
 
-At the time of writing, the site is currently being hosted on[vercel](https://what-time-is-f1-next.vercel.app/) with a very long uninteresting domain name. I may purchase a domain name for this when I've done some additional work to the site.
+At the time of writing, the site is currently being hosted on [vercel](https://what-time-is-f1-next.vercel.app/) with a very long uninteresting domain name. I may purchase a domain name for this when I've done some additional work to the site.
 
 # Bonus : Fun Quirk with Static Site Gen
 
