@@ -5,8 +5,11 @@ import ForegroundContent from "../../molecules/ForegroundContent/ForegroundConte
 // Loading Images links from above
 export default function HeroHeader({ images }: { images: string[] }) {
   return (
-    <BackgroundImages images={images}>
+    <>
+      {/* Background Image component*/}
+      {/* <BackgroundImages images={images}> */}
       <ForegroundContent />
-    </BackgroundImages>
+      {/* </BackgroundImages> */}
+    </>
   );
 }

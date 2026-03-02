@@ -52,6 +52,14 @@ export default function Navbar() {
               >
                 <strong>Posts</strong>
               </Link>
+
+              <Link
+                href="/about"
+                className={`navbar-item ${styles.noHover} mr-4 ${styles.itemHover}`}
+                onClick={closeMenu}
+              >
+                <strong>About Me</strong>
+              </Link>
               {/* Github Icon */}
               <Link
                 href="https://github.com/effeect"
@@ -82,11 +90,12 @@ export default function Navbar() {
               {/* Email Icon */}
               <Link
                 href="mailto:effeect-contact@pm.me"
-                className={`navbar-item ${styles.noHover}`}
+                className={`navbar-item ${styles.noHover} ${styles.itemHover_white}`}
               >
-                <button className={`button is-primary`}>
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </button>
+                <span className="icon">
+                  {" "}
+                  <FontAwesomeIcon icon={faEnvelope} size="lg" />
+                </span>
               </Link>
             </div>
           </div>

@@ -96,5 +96,3 @@ So far we've got a UI and we are able to add Machine Info to the MongoDB and we 
 ![LANMANOverview](../public/assets/lanman-intro/lanman-home-early.jpg)
 
 I'm hoping to share some more info soon and hopefully a demo of how this works. I have a set of Windows 11 VMs ready to go for this testing and I have been able to run some basic ansible scripts. But I'd like to have more functionality such as running winget scripts or anything like that.
-
-Going to get back to it. Many Thanks, Ollie.

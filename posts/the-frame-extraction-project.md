@@ -73,6 +73,3 @@ Since I developed this tool with Next.js, I was able to quickly get the web app 
 You can check out the website on here : [FrameExtractor](https://frame-extracter-site.vercel.app)
 
 And you can also check out the Github here : [Github](https://github.com/effeect/frame-extracter-site)
-
-Many Thanks,
-Ollie

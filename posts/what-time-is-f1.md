@@ -229,5 +229,3 @@ There are a few potential avenues I can take this simple site but the next thing
 - [Github Repo](https://github.com/effeect/what-time-is-f1-next)
 
 I'll create another post if I continue to put some extra work into this. Otherwise, I'm pretty happy with this outcome.
-
-See you later.
