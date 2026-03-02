@@ -119,6 +119,3 @@ It’s now available on [Github](https://github.com/effeect/LANMAN-Containers) a
 - Lack of documentation for the Ansible stuff
 
 There are still some things I would like to implement, specifically being able to mass select machines to run jobs to but I’m happy with the current state things are in considering the amount of time put into it.
-
-Many thanks, going to get back to it,
-Oliver Dimes

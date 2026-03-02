@@ -45,6 +45,3 @@ Whilst I'm happy with the result, there are some things I would like to change/i
 - I would also like to implement a better way to show off metadata. I've had some good experiences with Next.js when it comes to handling it; however, I wasn't wanting to add more npm packages for something relatively small and minor.
 
 I might have another crack at this and see if I can make it any better than it currently is, but I am happy with the result.
-
-Many Thanks,
-Ollie

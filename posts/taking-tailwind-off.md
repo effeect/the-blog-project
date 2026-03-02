@@ -130,5 +130,3 @@ Also whilst this is a minor thing, some of the examples I've seen of people use 
 # If you are reading this, it should already be working!
 
 At the time of this post, the website is now updated with Bulma which means the styling is much better and I have much more control.
-
-Onto much more fun projects next, goodbye for now.

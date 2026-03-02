@@ -65,6 +65,3 @@ I think one of the biggest stories I can take away from this escapade is that I 
 I'm going to study and take a look at vue more and maybe me studying a different JS framework will give me some insight and best practises for handling other JS frameworks such as Next.js and more.
 
 When I do come back to Next. I think I might make an effort to get rid of Tailwind and switch over to Bulma as I do like some of the styling much more and hopefully I don't expercience some of the image captioning issues I was experiencing, although I need to spend some more time with Bulma before making the Jump.
-
-Many Thanks,
-Oliver Dimes

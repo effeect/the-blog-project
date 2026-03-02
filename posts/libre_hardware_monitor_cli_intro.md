@@ -94,6 +94,3 @@ For example, I've noticed some Intel CPU sensors will not appear if the CLI is n
 # Release Status
 
 I've released some of the versions in pre-release on GitHub under the releases tab. I'll release a stable version once I've tidied up some of the code, documentation is up to standard and added some resilience into the code to stop potential errors.
-
-Many Thanks,
-Oliver

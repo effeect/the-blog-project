@@ -46,5 +46,3 @@ Then, just run `docker compose up`, and it should build very quickly. Please not
 
 - Using Node alpine is fine for this but in a prod environment or anything critical, should be version fixed to stop issues
 - You can do a volume bind in docker compose and if you swap the npm commands a bit, you can have a portable dev environment (so when you make changes in the hypervisor, those changes can be replicated in the docker containers)
-
-Thanks for reading.

@@ -154,6 +154,3 @@ runs-on: windows-latest
 The next project I may embark on is using some of the library automation I’ve done with the small scripts I’ve made and use them to automate Steam shortcut making. I’m well aware others are doing it already, but this solution could work really well if I tie it up well.
 
 Also, with the way I’m handling launching games (using a URI instead of just pointing to an EXE, which seems to play nice with most launchers). It might be a good solution. I’ll have a ponder about it.
-
-Many Thanks,
-Ollie

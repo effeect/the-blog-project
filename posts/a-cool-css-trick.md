@@ -92,6 +92,3 @@ You can check it out on the demo site or look at the hover effect example repo I
 - [Hover Effect Github Repo](https://github.com/effeect/hover-effect-example)
 
 Feel free to modify it and take it, it's so simple and quite effective. I wish I knew it sooner.
-
-Thanks for reading,
-Ollie
