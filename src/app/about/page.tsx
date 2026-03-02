@@ -53,7 +53,7 @@ export default function About() {
               following contact links!
             </p>
           </div>
-          <ContactButtons> </ContactButtons>
+          <ContactButtons />
         </div>
       </section>
     </>

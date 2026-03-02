@@ -7,7 +7,6 @@ import {
 } from "@/app/lib/posts";
 import "highlight.js/styles/github-dark.css";
 import ArticleHeader from "@/app/components/atoms/ArticleHeader/ArticleHeader";
-import Link from "next/link";
 import ContactButtons from "@/app/components/atoms/contactButtons/contactButtons";
 import PostControls from "@/app/components/atoms/PostControls/PostControls";
 // Define the post data type for safe use
@@ -72,7 +71,6 @@ export default async function PostPage(props: {
   const postData = (await getPostData(id)) as PostData;
   const nearbyPosts = await getNextAndPrevPosts(id);
   const currentIndexInfo = await getCurrentIndex(id);
-  console.log(nearbyPosts);
   if (!postData || !postData.contentHtml) return notFound();
   return (
     <section className="section">
