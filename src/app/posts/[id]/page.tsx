@@ -97,10 +97,10 @@ export default async function PostPage(props: {
         </div>
         <PostControls
           currentPost={id}
-          currentIndex={String(currentIndexInfo.currentIndex)}
+          currentIndex={String(currentIndexInfo.currentIndex + 1)}
           nextPost={nearbyPosts.nextIndex}
           prevPost={nearbyPosts.prevIndex}
-          ArrayLength={String(currentIndexInfo.arrayLength - 1)}
+          ArrayLength={String(currentIndexInfo.arrayLength)}
         />
       </div>
     </section>
