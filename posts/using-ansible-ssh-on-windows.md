@@ -1,9 +1,9 @@
 ---
 title: "Automating Windows with Ansible via SSH"
-date: "2026-03-10"
+date: "2026-03-09"
 tags: ["Ansible", "Windows", "SSH"]
 summary: "Exploring and using SSH for a Windows environment for Ansible automation purposes, and the advantages that it can bring."
-previewImage: "/assets/bsky-app-project/preview.png"
+previewImage: "/assets/ansible-ssh/notepadresult.png"
 ---
 
 With recent versions of Ansible, there is now official support to connect to a Windows-based host using SSH rather than relying on WinRM, which has traditionally been the primary method for connecting to Windows hosts in Ansible Playbooks.
@@ -159,6 +159,7 @@ It's not too difficult to automate the ssh-key copy if you have the machine pass
   gather_facts: no
 
   # Need to have the ssh-keygen done already
+  # The public key is on our local system
   vars:
     public_key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
 
@@ -225,7 +226,7 @@ Took 2 minutes with WinRM set to basic auth and using ntlm, hitting a max speed 
 
 ![](../public/assets/ansible-ssh/Usage-under-winrm.png)
 
-# Potenial issues
+# Potential issues
 
 Whilst I didn't encounter much trouble using this setup, I did spot this line in the documentation which may affect network resource access, although they appear to mention a workaround :
 
