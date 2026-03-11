@@ -2,7 +2,7 @@
 title: "Writing Windows Ansible Playbooks for Gaming Purposes"
 date: "2026-03-23"
 tags: ["Ansible", "Windows", "SSH", "Automation"]
-summary: "With the rise of PC gaming in the last few years and especially esports. I thought it might be a fun and interesting excercise to write some Ansible Playbooks focused on a core idea. Control and update a gaming pc."
+summary: "With the rise of PC gaming in the last few years and especially esports. I thought it might be a fun and interesting exercise to write some Ansible Playbooks focused on gaming setup in a Windows environment."
 previewImage: "/assets/ansible-lanman-part1/working.png"
 ---
 
