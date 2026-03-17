@@ -1,6 +1,6 @@
 ---
 title: "Writing Windows Ansible Playbooks for Gaming Purposes"
-date: "2026-03-23"
+date: "2026-03-17"
 tags: ["Ansible", "Windows", "SSH", "Automation"]
 summary: "With the rise of PC gaming in the last few years and especially esports. I thought it might be a fun and interesting exercise to write some Ansible Playbooks focused on gaming setup in a Windows environment."
 previewImage: "/assets/ansible-lanman-part1/working.png"
@@ -114,7 +114,7 @@ There are a few things going on in this script that I want to highlight :
 
 - Battle.net (Blizzard's game launcher, needed for World of Warcraft and other Blizzard titles) on Winget appears to not allow an installation without specifying the installation location with `"C:\Program Files\Battle.net"`, there might be a better way to implement this, but it's done as a separate task for the time being.
 - We have a task to check if we have an active internet connection, using the `ansible.windows.win_wait_for` to simply check if the machine can ping `www.google.com`.
-- We are failing the task if `Found an existing package already installed` is not found in the result.stdout. Furthermore, we are reporting the task as `changed` if we find a `Successfully Installed` in result.stdout. Besides, we aren't allowing any form of skipping as we want to make sure winget gets the latest version.
+- We are failing the task if `Found an existing package already installed` is not found in the result.stdout. Furthermore, we are reporting the task as `changed` if we find a `Successfully Installed` in result.stdout. Besides, we aren't allowing any form of skipping as we want to make sure Winget gets the latest version.
 
 Whilst this is fine for a native setup as Winget is included in most new versions of Windows, I am debating to myself whether to look at a different Windows package manager solution, specifically using something like [Chocolatey](https://chocolatey.org/) which may play nicer with Ansible, plus they have a nice search tool for [packages](https://community.chocolatey.org/packages?q=).
 
@@ -124,7 +124,7 @@ Despite that concern, I am pretty happy with this setup so far.
 
 The next issue I wanted to tackle was forcing update on the machines if necessary, with the potential number of Windows updates a system can get nowadays. It's worth having an Ansible playbook that can do an installation of said updates.
 
-The good news is it's really easy to do thanks to the Ansible modules. And with winget, you can do a `winget upgrade -all` in order to get all of winget packages up to date :
+The good news is it's really easy to do thanks to the Ansible modules. And with Winget, you can do a `winget upgrade -all` in order to get all of Winget packages up to date :
 
 ```yaml
 ---
