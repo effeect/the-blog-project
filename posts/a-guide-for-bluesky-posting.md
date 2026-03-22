@@ -1,8 +1,8 @@
 ---
-title: "Guide on how to write a small Bluesky Bot"
-date: "2026-03-17"
+title: "A quick guide on writing a small BlueSky Bot"
+date: "2026-03-13"
 tags: ["Bsky", "Node", "API", "CI/CD"]
-summary: "Writing about and diving into the world of making a simple bluesky bot and the process of doing so in a Node environment"
+summary: "Writing about and diving into the world of making a simple bluesky bot and the process of doing so in a Node.js environment"
 previewImage: "/assets/bsky-app-project/preview.png"
 ---
 
