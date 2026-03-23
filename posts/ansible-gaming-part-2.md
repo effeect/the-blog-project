@@ -1,9 +1,9 @@
 ---
-title: "Writing Windows Ansible Playbooks for Gaming Purposes - Part 2 "
-date: "2026-03-30"
+title: "Writing more Ansible Playbooks for Gaming purposes - Part 2"
+date: "2026-03-23"
 tags: ["Ansible", "Windows", "SSH", "Automation"]
-summary: "A continuation into "
-previewImage: "/assets/ansible-lanman-part1/working.png"
+summary: "A continuation into writing more Ansible Playbooks for Gaming purposes in Windows."
+previewImage: "/assets/ansible-lanman-part2/tpm.png"
 ---
 
 Last week, I started working on a little project to make some Ansible playbooks for use in a Windows gaming centric environment, and it's been a lot of fun diving into the world of writing/testing Ansible playbooks.
