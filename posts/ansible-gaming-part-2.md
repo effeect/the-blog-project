@@ -1,12 +1,12 @@
 ---
-title: "Making some more Ansible Playbooks"
+title: "Writing Windows Ansible Playbooks for Gaming Purposes - Part 2 "
 date: "2026-03-30"
 tags: ["Ansible", "Windows", "SSH", "Automation"]
-summary: ""
+summary: "A continuation into "
 previewImage: "/assets/ansible-lanman-part1/working.png"
 ---
 
-Last week, I started working on a little project to make some Ansible playbooks for use in a Windows gaming centric environment and it's been a lot of fun diving into the world of writing/testing Ansible playbooks.
+Last week, I started working on a little project to make some Ansible playbooks for use in a Windows gaming centric environment, and it's been a lot of fun diving into the world of writing/testing Ansible playbooks.
 
 This post will be slightly shorter and will be more showcasing what I've been working on in my spare time. I hope you enjoy some of the stuff I'm showing off today.
 
@@ -69,7 +69,7 @@ I want to implement EA/Epic Games in near future, I need to spend a bit more tim
 
 One of the main things I wanted to focus on today was inspired by an issue I experienced the other day. I've been dual booting my system between Ubuntu 24.04LTS and Windows 11 (I do a lot of my dev work in Ubuntu at the moment, but I like to keep Windows mostly for gaming and media consumption) and I wanted to play a game, and it turns out I didn't have secure boot enabled on my system and some newer games mandate the requirement of having secure boot turned on.
 
-So I wanted to write a quick diagnostics playbook to confirm that secure boot and tpm are turned on the system. The way I ended up doing this was writing a powershell that would output some commands to a json file like so :
+So I wanted to write a quick diagnostics playbook to confirm that secure boot and TPM are turned on the system. The way I ended up doing this was writing a PowerShell that would output some commands to a JSON file like so :
 
 ```powershell
 # Simple powershell script for checking secureboot/tpm status
@@ -113,7 +113,7 @@ I separated the script from the Ansible playbook to make things a bit more tidy 
   hosts: windows
   gather_facts: false
   tasks:
-    # Run the script (can be found under scripts if you want)
+    # Run the script (can be found under scripts if you want to modify it yourself)
     - name: Run Powershell Script
       ansible.windows.win_shell: "{{ lookup('file', 'scripts/check-tpm-secureboot.ps1')}}"
       register: script_output
@@ -138,14 +138,14 @@ I separated the script from the Ansible playbook to make things a bit more tidy 
           - "Secure Boot Enabled: {{ secure_boot_enabled }}"
 ```
 
-With the script above, we are just simply outputting the status of the system into the terminal. We could do something a bit more action based in the future, but I am happy with this setup at the moment.
+With the script above, we are just simply outputting the status of the system into the terminal. We should do some conditionals based on the results such as alerting the machine that these things aren't enabled.
 
 ![](../public/assets/ansible-lanman-part2/tpm.png)
 _Output from running the Ansible playbook by itself_
 
-Whilst here, I also did a quick network config script although the output isn't particularly nice, it's mostly meant for debugging but could turn it into something useful later.
+Whilst here, I also did a quick network config script, although the output isn't particularly nice, it's mostly meant for debugging but could turn it into something useful later.
 
-The powershell script :
+The PowerShell script :
 
 ```powershell
 # Check the network config and report back to ansible
@@ -186,11 +186,11 @@ I'll do a bit more work on this in the near future.
 
 # Part 3 : Booting up custom programs/websites
 
-The next thing I wanted to tackle was to allow do some simple booting up and opening up certain things on the Windows machines in question. We can do Steam and Ubisoft games, but we can't do any old executables or opening up websites. Hence, me spending some time to get this stuff up and running.
+The next thing I wanted to tackle was to allow to do some simple booting up and opening up certain things on the Windows machines in question. We can do Steam and Ubisoft games, but we can't do any old executables or opening up websites. Hence, me spending some time to get this stuff up and running.
 
 The method to do this very similar to the Steam/Ubisoft stuff we tackled earlier, we need to do the scheduled task trick as we are using the SSH key method, but otherwise it works relatively well.
 
-There are some interesting use cases, especially for the custom program as you could have an executable that autoplays some vide with VLC or does something hyper specific in the Windows environment. Whilst I like to keep everything within an Ansible playbook as it is very easy to keep track of, I think it is worth allowing option to run an executable like this.
+There are some interesting use cases, especially for the custom program as you could have an executable that autoplay some vide with VLC or does something hyper specific in the Windows environment. Whilst I like to keep everything within an Ansible playbook as it is very easy to keep track of, I think it is worth allowing option to run an executable like this.
 
 So here is an Ansible playbook to open up any website on **default** web browser :
 
@@ -268,9 +268,9 @@ So here is an Ansible playbook to open up any program on the system :
         state: absent
 ```
 
-# Part 4 : Now on Github (if you dare!)
+# Part 4 : Now on GitHub (if you dare...)
 
-Unlike last time, this stuff is currently up on Github and available for public use here.
+Unlike last time, this stuff is currently up on GitHub and available for public use here.
 
 [www.github.com/effeect/LANMAN-Ansible](https://github.com/effeect/LANMAN-Ansible/tree/main)
 

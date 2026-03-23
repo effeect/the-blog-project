@@ -1,16 +1,23 @@
 .boxBlur {
   /* background-color: rgba(0, 0, 0, 0.4); */
-  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  border-radius: 6px; /* Matching Bulma's box feel */
 }
 
 /* The item hover effect for the latest post on the front page*/
 .itemHover:hover {
   background-color: rgba(113, 113, 113, 0.5);
   transform: translateY(-2px) scale(1.04);
-
   cursor: pointer;
   /* border-radius: 20px; */
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;
+}
+
+.hoverUnderline:hover {
+  text-decoration: underline;
 }
