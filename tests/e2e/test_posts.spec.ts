@@ -39,7 +39,7 @@ test("confirm that there are the correct number of posts on the page", async ({
 test("confirm all posts are clickable", async ({ page }) => {
   await page.goto("/posts");
   // Search for all clickable links
-  const postLinks = page.locator('div[class*="blockfield_postBox"] > a');
+  const postLinks = page.locator("a").filter({ has: page.locator("h3") });
   const count = await postLinks.count();
   await expect(count).toBeGreaterThan(0);
   for (let i = 0; i < count; i++) {
