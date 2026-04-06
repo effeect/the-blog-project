@@ -14,19 +14,15 @@ The reason why I'm doing this is that in the next few weeks, I want to make a bu
 
 [Playwright](https://playwright.dev/) is a test runner focused specifically in the world of web automation.
 
-Specifically, this is focused in the world of E2E web testing and effectively spins up a headless web browser to perform the actions needed.
+This type of automated testing also allows for less human error, as theoretically, as long as the test is written correctly (which is the human part in this case), there would be no human error when the test is being run and should be consistent. We also get the benefit that if the test coverage is perfect, if there is an issue, an engineer can identify the problematic component very quickly.
 
-I’ve had plenty of experience writing end to end manual tests in the past, however I’ve always wanted to delve deeper into the world of Playwright as it can automate basic website functionality without needing a human tester to load up an environment and test it for themselves. It saves vaulable time and allows testers to focus on things that are far more critical.
+**To be clear, Playwright cannot be a full replacement for all your testing needs,** spinning up a full test runner like that can be slow and impractical. For example, if I wanted to check if an API is returning the correct data, a basic test framework like pytest or vitest (there are plenty of them) would be far more cost-effective and easier to implement. However, for anything that requires a web browser to test correctly, Playwright is an excellent choice.
 
-This type of automated testing also allows for less human error, as theortically, as long as the test is written correctly (which is the human part in this case), there would be no human error when the test being run and should be consistent. We also get the benefit that if the test coverage is perfect, if there is an issue, an engineer can identify the problematic component very quickly.
-
-**To be clear, Playwright cannot be a full replacement for all your testing needs,** spinning up a full test runner like can be slow and impractical. For example, if I wanted to check if an API is returning the correct data, a basic test framework like pytest or vitest (there are plenty of them) would be far more cost effective and easier to implement. However, for anything that requires a web browser to test correctly, playwright is an excellent choice.
-
-For the time being, I'm focused on getting this implemented into a CI/CD environment and spit out a small report at the end of it if needed. There are reporting frameworks such as Allure report which I won't dive into today but may add to my blog in the future.
+For the time being, I'm focused on getting this implemented into a CI/CD environment and spitting out a small report at the end of it if needed. There are reporting frameworks such as Allure Report which I won't dive into today but may add to my blog in the future.
 
 ## Writing the tests
 
-One of the first things I wanted to do was to write a test to confirm that the title of the page is correct, this is fairly trival to do. Whilst simple, this is useful especially if we have dynamic titles.
+One of the first things I wanted to do was to write a test to confirm that the title of the page is correct. This is fairly trivial to do. Whilst simple, this is useful especially if we have dynamic titles.
 
 ```ts
 import { test, expect } from "@playwright/test";
