@@ -10,3 +10,13 @@ If you want to run the blog locally yourself for whatever reason, you can do the
 - `npm run build` will run in a build environment
 
 You can also view the posts here on Github with working image links if you navigate to the `/posts` folder as all the posts are written in Markdown.
+
+# Playwright Notes
+
+This blog project contains some playwright tests that can be run seperately if needed.
+
+Can do it with the following :
+`npx playwright test`
+
+If you need to view the report, please run :
+`npx playwright show-report`
