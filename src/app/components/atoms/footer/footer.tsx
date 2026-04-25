@@ -1,28 +1,37 @@
-// Footer component for the bottom of the website, shows up on every page
-import Link from "next/link";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import MuiLink from "@mui/material/Link";
+import NextLink from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="content has-text-centered">
-        <p className="subtitle">
-          &copy; {new Date().getFullYear()} Written by Oliver Dimes. Built with{" "}
-          <Link href="https://nextjs.org" className="has-text-link">
-            Next.js
-          </Link>
-          ,{" "}
-          <Link href="https://bulma.io" className="has-text-link">
-            Bulma CSS
-          </Link>{" "}
-          and{" "}
-          <Link
-            href="https://github.com/effeect/the-blog-project/tree/main"
-            className="has-text-link"
-          >
-            GitHub
-          </Link>
-        </p>
-      </div>
-    </footer>
+    <Box
+      component="footer"
+      sx={{
+        py: 4,
+        textAlign: "center",
+        borderTop: 1,
+        borderColor: "divider",
+      }}
+    >
+      <Typography variant="body2" color="text.secondary">
+        &copy; {new Date().getFullYear()} Written by Oliver Dimes. Built with{" "}
+        <MuiLink component={NextLink} href="https://nextjs.org" color="primary">
+          Next.js
+        </MuiLink>
+        ,{" "}
+        <MuiLink component={NextLink} href="https://mui.com" color="primary">
+          Material UI
+        </MuiLink>{" "}
+        and{" "}
+        <MuiLink
+          component={NextLink}
+          href="https://github.com/effeect/the-blog-project/tree/main"
+          color="primary"
+        >
+          GitHub
+        </MuiLink>
+      </Typography>
+    </Box>
   );
 }

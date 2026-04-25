@@ -1,108 +1,157 @@
 "use client";
-//Simple Navbar component for the blog/portfolio website
-import Link from "next/link";
-import styles from "./navbar.module.css";
+
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faLinkedin,
-  faBluesky,
-} from "@fortawesome/free-brands-svg-icons"; //Special thanks to https://codesandbox.io/p/sandbox/link-hover-t2rxxv?file=%2Findex.html%3A11%2C1-22%2C11&from-embed for the hover effect inspiration
+import NextLink from "next/link";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import MenuIcon from "@mui/icons-material/Menu";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import BlueskyIcon from "../icons/BlueskyIcon";
+import styles from "./navbar.module.css";
+
+const navLinks = [
+  { label: "Posts", href: "/posts" },
+  { label: "About Me", href: "/about" },
+];
+
+const iconLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/effeect",
+    icon: <GitHubIcon />,
+    className: styles.itemHover_white,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/oliver-dimes-793b31194/",
+    icon: <LinkedInIcon />,
+    className: styles.itemHover_linkedin,
+  },
+  {
+    label: "Bluesky",
+    href: "https://bsky.app/profile/effeect.bsky.social",
+    icon: <BlueskyIcon />,
+    className: styles.itemHover,
+  },
+  {
+    label: "Email",
+    href: "mailto:effeect-contact@pm.me",
+    icon: <EmailIcon />,
+    className: styles.itemHover_white,
+  },
+];
+
 export default function Navbar() {
-  const closeMenu = () => {
-    setIsActive(false);
-  };
-  // Define the states above
-  const [isActive, setIsActive] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <>
-      <nav className={`navbar`} role="navigation" aria-label="main navigation">
-        <div className="container my-1">
-          <div className="navbar-brand">
-            <Link
-              href="/"
-              className={`navbar-item ${styles.logoText}`}
-              onClick={closeMenu}
-            >
-              oliverdimes.dev
-            </Link>
+      <AppBar position="sticky" aria-label="main navigation">
+        <Toolbar>
+          {/* Logo */}
+          <Typography
+            component={NextLink}
+            href="/"
+            variant="h6"
+            className={styles.logoText}
+            sx={{
+              flexGrow: 1,
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            oliverdimes.dev
+          </Typography>
 
-            <button
-              onClick={() => setIsActive(!isActive)}
-              className={`navbar-burger ${isActive ? "is-active" : ""}`}
-              aria-label="menu"
-              aria-expanded="false"
-            >
-              {/* Seem to need four lines for this? */}
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </button>
-          </div>
-          <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
-            <div className="navbar-start">{/* 2. Text Link 1 */}</div>
-            <div className="navbar-end">
-              <Link
-                href="/posts"
-                className={`navbar-item ${styles.noHover} mr-4 ${styles.itemHover}`}
-                onClick={closeMenu}
+          {/* Desktop nav links */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
+            {navLinks.map(({ label, href }) => (
+              <Button
+                key={label}
+                component={NextLink}
+                href={href}
+                color="inherit"
+                className={styles.itemHover}
               >
-                <strong>Posts</strong>
-              </Link>
+                {label}
+              </Button>
+            ))}
+            {iconLinks.map(({ label, href, icon, className }) => (
+              <IconButton
+                key={label}
+                component="a"
+                href={href}
+                aria-label={label}
+                color="inherit"
+                className={className}
+              >
+                {icon}
+              </IconButton>
+            ))}
+          </Box>
 
-              <Link
-                href="/about"
-                className={`navbar-item ${styles.noHover} mr-4 ${styles.itemHover}`}
-                onClick={closeMenu}
-              >
-                <strong>About Me</strong>
-              </Link>
-              {/* Github Icon */}
-              <Link
-                href="https://github.com/effeect"
-                className={`navbar-item ${styles.noHover} ${styles.itemHover_white}`}
-              >
-                <span className="icon">
-                  <FontAwesomeIcon icon={faGithub} size="lg" />
-                </span>
-              </Link>
-              {/* LinkedIn Icon */}
-              <Link
-                href="https://www.linkedin.com/in/oliver-dimes-793b31194/"
-                className={`navbar-item ${styles.noHover} ${styles.itemHover_linkedin}`}
-              >
-                <span className="icon">
-                  <FontAwesomeIcon icon={faLinkedin} size="lg" />
-                </span>
-              </Link>
-              {/* Bluesky Icon*/}
-              <Link
-                href="https://bsky.app/profile/effeect.bsky.social"
-                className={`navbar-item ${styles.noHover} ${styles.itemHover}`}
-              >
-                <span className="icon">
-                  <FontAwesomeIcon icon={faBluesky} size="lg" />
-                </span>
-              </Link>
-              {/* Email Icon */}
-              <Link
-                href="mailto:effeect-contact@pm.me"
-                className={`navbar-item ${styles.noHover} ${styles.itemHover_white}`}
-              >
-                <span className="icon">
-                  {" "}
-                  <FontAwesomeIcon icon={faEnvelope} size="lg" />
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+          {/* Mobile hamburger */}
+          <IconButton
+            color="inherit"
+            aria-label="open menu"
+            edge="end"
+            onClick={() => setDrawerOpen(true)}
+            sx={{ display: { md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
 
-      {/* <div className="mb-20"></div> */}
+      {/* Mobile drawer */}
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <Box sx={{ width: 220 }} role="presentation">
+          <List>
+            {navLinks.map(({ label, href }) => (
+              <ListItem key={label} disablePadding>
+                <ListItemButton
+                  component={NextLink}
+                  href={href}
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  <ListItemText primary={label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+          <List>
+            {iconLinks.map(({ label, href, icon }) => (
+              <ListItem key={label} disablePadding>
+                <ListItemButton
+                  component="a"
+                  href={href}
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  <Box sx={{ mr: 1.5, display: "flex" }}>{icon}</Box>
+                  <ListItemText primary={label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
     </>
   );
 }

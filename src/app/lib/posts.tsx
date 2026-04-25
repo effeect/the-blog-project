@@ -136,17 +136,17 @@ export async function getPostData(id: string) {
                   child.type === "element" && child.tagName === "em",
               );
 
-              // Transform the <p> into a Bulma <figure>
+              // Transform the <p> into a <figure>
               node.tagName = "figure";
               node.properties = {
                 ...node.properties,
-                className: ["image", "has-text-centered", "mb-6", "mx-auto"],
+                style: "text-align:center; margin:1.5rem auto; display:block;",
               };
 
               // Style the image
               imgNode.properties = {
                 ...imgNode.properties,
-                className: ["is-inline-block"],
+                style: "display:inline-block;",
               };
 
               // Transform <em> into <figcaption>
@@ -154,7 +154,8 @@ export async function getPostData(id: string) {
                 emNode.tagName = "figcaption";
                 emNode.properties = {
                   ...emNode.properties,
-                  className: ["has-text-grey", "mt-2", "is-italic"],
+                  style:
+                    "color:#9e9e9e; margin-top:0.5rem; font-style:italic; display:block;",
                 };
               }
             }

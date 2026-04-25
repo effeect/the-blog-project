@@ -4,7 +4,7 @@
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;
-  border-radius: 6px; /* Matching Bulma's box feel */
+  border-radius: 6px;
 }
 
 .postBox:hover {
@@ -12,7 +12,6 @@
   transform: translateY(-2px) scale(1.04);
 
   cursor: pointer;
-  /* border-radius: 20px; */
   transition:
     background-color 0.3s ease,
     transform 0.2s ease;

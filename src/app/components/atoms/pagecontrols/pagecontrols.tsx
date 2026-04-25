@@ -1,6 +1,8 @@
-// We are handling the pagination controls here :
-import Link from "next/link";
-// TODO: Need to make it so the disabled buttons don't work as I get the impression it is going to cause a lot of spam
+import NextLink from "next/link";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
 export default function PageControls({
   currentPage,
   totalPages,
@@ -8,38 +10,49 @@ export default function PageControls({
   currentPage: number;
   totalPages: number;
 }) {
+  const isFirst = currentPage <= 1;
+  const isLast = currentPage >= totalPages;
+
   return (
-    <nav
-      className="pagination is-centered mt-6"
-      role="navigation"
-      aria-label="pagination"
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 2,
+        mt: 4,
+        flexWrap: "wrap",
+      }}
     >
-      <Link
-        href={currentPage > 1 ? `/posts?page=${currentPage - 1}` : "#"}
-        className={`pagination-previous ${
-          currentPage <= 1 ? "is-disabled" : ""
-        }`}
-        aria-disabled={currentPage <= 1}
+      <Button
+        variant="outlined"
+        component={NextLink}
+        href={`/posts?page=${currentPage - 1}`}
+        aria-disabled={isFirst}
+        sx={{
+          pointerEvents: isFirst ? "none" : "auto",
+          opacity: isFirst ? 0.38 : 1,
+        }}
       >
         Previous
-      </Link>
-      <Link
-        href={currentPage < totalPages ? `/posts?page=${currentPage + 1}` : "#"}
-        className={`pagination-next ${
-          currentPage >= totalPages ? "is-disabled" : ""
-        }`}
-        aria-disabled={currentPage >= totalPages}
+      </Button>
+
+      <Typography variant="body2" color="text.secondary">
+        {currentPage} of {totalPages}
+      </Typography>
+
+      <Button
+        variant="outlined"
+        component={NextLink}
+        href={`/posts?page=${currentPage + 1}`}
+        aria-disabled={isLast}
+        sx={{
+          pointerEvents: isLast ? "none" : "auto",
+          opacity: isLast ? 0.38 : 1,
+        }}
       >
         Next page
-      </Link>
-
-      <ul className="pagination-list">
-        <li>
-          <span className="pagination-link is-current">
-            {currentPage} of {totalPages}
-          </span>
-        </li>
-      </ul>
-    </nav>
+      </Button>
+    </Box>
   );
 }

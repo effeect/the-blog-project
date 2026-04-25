@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("post should have correct Metadata", async ({ page }) => {
-  await page.goto("posts/a-cool-css-trick");
+  await page.goto("/posts/a-cool-css-trick");
   const ogTitle = page.locator('meta[property="og:title"]');
   await expect(ogTitle).toHaveAttribute(
     "content",
@@ -24,7 +24,7 @@ test("post should have correct Metadata", async ({ page }) => {
 
 test("Confirm that button navigation at the bottom works", async ({ page }) => {
   // In this test we will simply go back and forth with the page
-  await page.goto("posts/a-cool-css-trick");
+  await page.goto("/posts/a-cool-css-trick");
   const nextButton = page.getByRole("link", { name: "Next Post" });
   await nextButton.click();
   const prevButton = page.getByRole("link", { name: "Previous Post" });

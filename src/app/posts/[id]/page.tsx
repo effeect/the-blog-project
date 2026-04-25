@@ -1,4 +1,8 @@
 import { notFound } from "next/navigation";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import {
   getAllPostIds,
   getCurrentIndex,
@@ -9,14 +13,14 @@ import "highlight.js/styles/github-dark.css";
 import ArticleHeader from "@/app/components/atoms/ArticleHeader/ArticleHeader";
 import ContactButtons from "@/app/components/atoms/contactButtons/contactButtons";
 import PostControls from "@/app/components/atoms/PostControls/PostControls";
-// Define the post data type for safe use
+
 type PostData = {
   id: string;
   date: string;
   title: string;
   previewImage?: string;
   tags?: string[];
-  summary?: string; // Added summary for metadata type safety
+  summary?: string;
   contentHtml?: string;
 };
 
@@ -24,35 +28,30 @@ export async function generateStaticParams() {
   return getAllPostIds();
 }
 
-// Creates metadata, useful for social media like bsky/twitter (rip twitter)
 export async function generateMetadata(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
   const id = params.id;
   const post = (await getPostData(id)) as PostData;
-  // For the Canonical URL, using the Post ID
   const url = `https://oliverdimes.dev/posts/${id}`;
 
   if (!post) return { title: "Post Not Found" };
 
-  // Setting a default preview image if none is provided
   if (!post.previewImage) {
     post.previewImage = "/default-preview.png";
   }
 
   return {
     metadataBase: new URL("https://oliverdimes.dev"),
-    alternates: {
-      canonical: url,
-    },
+    alternates: { canonical: url },
     title: `oliverdimes.dev - ${post.title}`,
     description: post.summary ?? `A post about ${post.tags?.join(", ")}`,
     keywords: post.tags?.join(", ") ?? "Blog post by Oliver Dimes",
     openGraph: {
       title: post.title ?? "No title given",
       description: post.summary ?? "No summary given",
-      url: url,
+      url,
       type: "article",
       publishedTime: post.date,
       authors: ["Oliver Dimes"],
@@ -71,30 +70,33 @@ export default async function PostPage(props: {
   const postData = (await getPostData(id)) as PostData;
   const nearbyPosts = await getNextAndPrevPosts(id);
   const currentIndexInfo = await getCurrentIndex(id);
-  if (!postData || !postData.contentHtml) return notFound();
-  return (
-    <section className="section">
-      <div className="container is-max-desktop">
-        {/* Title and Date Section */}
-        <ArticleHeader postData={postData} />
-        <hr className="has-background-grey-dark" />
 
-        {/* Post Content Section */}
-        <div
-          className="content is-medium"
-          style={{ minHeight: "500px" }}
+  if (!postData || !postData.contentHtml) return notFound();
+
+  return (
+    <Box component="section" sx={{ py: 6 }}>
+      <Container maxWidth="md">
+        <ArticleHeader postData={postData} />
+        <Divider sx={{ my: 3 }} />
+
+        <Box
+          className="post-content"
+          data-testid="post-content"
+          sx={{ minHeight: 500 }}
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
-      </div>
-      <hr />
-      <div className="container is-max-desktop">
-        <div className="content is-medium">
-          Feel free to contact me below with the following methods :{" "}
-        </div>
+      </Container>
+
+      <Divider sx={{ my: 4 }} />
+
+      <Container maxWidth="md">
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          Feel free to contact me below with the following methods:
+        </Typography>
         <ContactButtons />
-        <div className="content is-medium">
+        <Typography variant="body1" sx={{ mt: 2, mb: 2 }}>
           As always, thank you for reading.
-        </div>
+        </Typography>
         <PostControls
           currentPost={id}
           currentIndex={String(currentIndexInfo.currentIndex + 1)}
@@ -102,7 +104,7 @@ export default async function PostPage(props: {
           prevPost={nearbyPosts.prevIndex}
           ArrayLength={String(currentIndexInfo.arrayLength)}
         />
-      </div>
-    </section>
+      </Container>
+    </Box>
   );
 }

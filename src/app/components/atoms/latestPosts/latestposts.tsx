@@ -1,6 +1,13 @@
-// This component fetches and displays a list of blog posts with links to individual post pages.
 import { getSortedPosts } from "@/app/lib/posts";
-import Link from "next/link";
+import NextLink from "next/link";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import MuiLink from "@mui/material/Link";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import Date from "@/app/lib/date";
 import styles from "./latestPosts.module.css";
 
@@ -10,42 +17,51 @@ type PostData = {
   title: string;
 };
 
-// This component is meant for the homepage to show the latest
 export default function LatestPostList() {
-  // Fetching sorted posts data for the list
   const allPostsData = getSortedPosts() as PostData[];
-  // Only showing the first 5 posts on the main page
   const displayedPosts = allPostsData.slice(0, 5);
-  return (
-    <>
-      <div className="container is-max-desktop px-4 py-4">
-        {/* Custom tinted box */}
-        <div className={`box ${styles.boxBlur}`}>
-          <h2 className="title is-3 ">Latest Posts</h2>
-          <p className="subtitle is-5 mb-4">
-            <Link href="/posts" className="has-text-link">
-              View All
-            </Link>
-          </p>
 
-          <ul className="block">
-            {displayedPosts.map(({ id, date, title }) => (
-              <li key={id} className={`mb-2`}>
-                <Link
-                  href={`/posts/${id}`}
-                  className={`${styles.itemHover} is-block p-4`}
-                >
-                  <h3 className="title is-5 mb-1">{title}</h3>
-                  <h3 className="subtitle is-7">
-                    <span>Posted on </span>
-                    <Date dateString={date} />
-                  </h3>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </>
+  return (
+    <Container maxWidth="md" sx={{ px: 2, py: 2 }}>
+      <Paper
+        data-testid="latest-posts"
+        elevation={1}
+        className={styles.boxBlur}
+        sx={{ p: 3 }}
+      >
+        <Typography variant="h5" gutterBottom>
+          Latest Posts
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          <MuiLink component={NextLink} href="/posts" color="primary">
+            View All
+          </MuiLink>
+        </Typography>
+
+        <List disablePadding>
+          {displayedPosts.map(({ id, date, title }) => (
+            <ListItem key={id} disablePadding sx={{ mb: 0.5 }}>
+              <ListItemButton
+                component={NextLink}
+                href={`/posts/${id}`}
+                className={styles.itemHover}
+                sx={{ borderRadius: 1 }}
+              >
+                <ListItemText
+                  primary={
+                    <Typography variant="subtitle2">{title}</Typography>
+                  }
+                  secondary={
+                    <Typography variant="caption" color="text.secondary">
+                      Posted on <Date dateString={date} />
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Paper>
+    </Container>
   );
 }
