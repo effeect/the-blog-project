@@ -11,8 +11,8 @@ test("Homepage should have the latest posts", async ({ page }) => {
 
   const latestPostsContainer = page.locator('[data-testid="latest-posts"]');
   await expect(latestPostsContainer).toBeVisible();
-  const postEnteries = latestPostsContainer.locator("li");
-  await expect(postEnteries).toHaveCount(5);
+  const postEntries = latestPostsContainer.locator("li");
+  await expect(postEntries).toHaveCount(5);
 });
 
 test("Homepage navbar should have working links", async ({ page }) => {

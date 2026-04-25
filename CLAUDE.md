@@ -30,3 +30,7 @@ npm run test             # run tests
 
 - Hosted on **Vercel** — merges to `main` trigger automatic deployments
 - Production URL: `https://oliverdimes.dev`
+
+## Skills
+
+Before performing e2e testing tasks, read skills/e2e-testing/SKILL.md and follow its instructions.
