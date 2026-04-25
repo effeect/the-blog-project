@@ -1,22 +1,22 @@
 import React from "react";
 import Image from "next/image";
+import Box from "@mui/material/Box";
+
 const ProfilePic = () => {
   return (
-    <div className="is-flex is-justify-content-center mb-2">
-      <figure className="image is-128x128">
-        <Image
-          src="/profile.jpeg"
-          alt="Oliver's profile"
-          width={128}
-          height={128}
-          className="is-rounded"
-          style={{
-            border: "1px solid white",
-            objectFit: "cover",
-          }}
-        />
-      </figure>
-    </div>
+    <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+      <Image
+        src="/profile.jpeg"
+        alt="Oliver's profile"
+        width={128}
+        height={128}
+        style={{
+          borderRadius: "50%",
+          border: "1px solid white",
+          objectFit: "cover",
+        }}
+      />
+    </Box>
   );
 };
 

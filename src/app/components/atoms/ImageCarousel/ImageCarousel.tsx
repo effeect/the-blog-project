@@ -9,7 +9,7 @@ const ImageCarousel = ({
   currentImageIndex?: number;
 }) => {
   return (
-    <div className="is-overlay" style={{ zIndex: 0 }}>
+    <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
       {images.map((src, index) => (
         <Image
           key={index}

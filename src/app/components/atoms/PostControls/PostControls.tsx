@@ -1,7 +1,8 @@
-// We are handling the pagination controls here :
-import Link from "next/link";
+import NextLink from "next/link";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
-// Copy of the PaginationControls object but meant for the post navigation
 export default function PostControls({
   currentPost,
   currentIndex,
@@ -15,46 +16,41 @@ export default function PostControls({
   prevPost: string;
   ArrayLength: string;
 }) {
-  return (
-    <nav
-      className="pagination is-centered mt-6"
-      role="navigation"
-      aria-label="pagination"
-    >
-      {nextPost == currentPost ? (
-        <Link
-          href={`#`}
-          className="pagination-previous is-disabled"
-          style={{ cursor: "not-allowed", pointerEvents: "none" }}
-        >
-          Next Post
-        </Link>
-      ) : (
-        <Link href={`/posts/${nextPost}`} className="pagination-previous">
-          Next Post
-        </Link>
-      )}
-      {prevPost == currentPost ? (
-        <Link
-          href={`#`}
-          className="pagination-next is-disabled"
-          style={{ cursor: "not-allowed", pointerEvents: "none" }}
-        >
-          Previous Post
-        </Link>
-      ) : (
-        <Link href={`/posts/${prevPost}`} className="pagination-next">
-          Previous Post
-        </Link>
-      )}
+  const isFirst = nextPost === currentPost;
+  const isLast = prevPost === currentPost;
 
-      <ul className="pagination-list">
-        <li>
-          <span className="pagination-link is-current">
-            Post {currentIndex} of {ArrayLength}
-          </span>
-        </li>
-      </ul>
-    </nav>
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 2,
+        mt: 4,
+        flexWrap: "wrap",
+      }}
+    >
+      <Button
+        variant="outlined"
+        component={isFirst ? "button" : NextLink}
+        href={isFirst ? undefined : `/posts/${nextPost}`}
+        disabled={isFirst}
+      >
+        Next Post
+      </Button>
+
+      <Typography variant="body2" color="text.secondary">
+        Post {currentIndex} of {ArrayLength}
+      </Typography>
+
+      <Button
+        variant="outlined"
+        component={isLast ? "button" : NextLink}
+        href={isLast ? undefined : `/posts/${prevPost}`}
+        disabled={isLast}
+      >
+        Previous Post
+      </Button>
+    </Box>
   );
 }

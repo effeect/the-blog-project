@@ -1,8 +1,13 @@
 import React from "react";
-import Link from "next/link";
+import NextLink from "next/link";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 import Date from "@/app/lib/date";
 import styles from "./blockfield.module.css";
-// Should export the type outside tbh
+
 type PostData = {
   id: string;
   date: string;
@@ -17,33 +22,45 @@ export default function BlockField({
   currentPosts: PostData[];
 }) {
   return (
-    <div className="block">
+    <Box
+      data-testid="post-list"
+      sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+    >
       {currentPosts.map(({ id, date, title, tags, summary }) => (
-        <div key={id} className={`box mb-5 ${styles.postBox}`}>
-          <Link href={`/posts/${id}`}>
-            <h3 className={`title is-4 is-marginless ${styles.hoverUnderline}`}>
+        <Paper
+          key={id}
+          data-testid="post-card"
+          elevation={2}
+          className={styles.postBox}
+          sx={{ p: 2.5 }}
+        >
+          <NextLink href={`/posts/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <Typography
+              variant="h5"
+              className={styles.hoverUnderline}
+              gutterBottom
+            >
               {title}
-            </h3>
+            </Typography>
 
-            <p className={`is-size-6 subtitle mt-2`}>{summary}</p>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              {summary}
+            </Typography>
 
-            <div className="is-flex is-align-items-center is-size-7 subtitle ">
-              <span className="mr-1 ">Posted on</span>
-              <Date dateString={date} />
-            </div>
+            <Typography variant="caption" color="text.secondary">
+              Posted on <Date dateString={date} />
+            </Typography>
 
             {tags && tags.length > 0 && (
-              <div className="tags mt-3">
+              <Stack direction="row" sx={{ flexWrap: "wrap", gap: 0.5, mt: 1.5 }}>
                 {tags.map((tag) => (
-                  <span key={tag} className="tag is-link is-rounded">
-                    {tag}
-                  </span>
+                  <Chip key={tag} label={tag} size="small" color="primary" />
                 ))}
-              </div>
+              </Stack>
             )}
-          </Link>
-        </div>
+          </NextLink>
+        </Paper>
       ))}
-    </div>
+    </Box>
   );
 }

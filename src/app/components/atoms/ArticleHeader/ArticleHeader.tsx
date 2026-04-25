@@ -1,34 +1,39 @@
 import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 import Date from "../../atoms/date/date";
 import { PostData } from "@/app/types/PostData.type";
 
 const ArticleHeader = ({ postData }: { postData: PostData }) => {
   return (
-    <header className="mb-6">
-      <h1 className="title is-1">{postData.title}</h1>
-      <h2 className="subtitle is-4 mt-2">
-        {postData.summary ?? "No Summary Available, sorry!"}
-      </h2>
+    <Box component="header" sx={{ mb: 4 }}>
+      <Typography variant="h3" gutterBottom>
+        {postData.title}
+      </Typography>
 
-      <div className="is-flex is-align-items-center is-size-5 ">
-        <span className="mr-2">
+      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 1.5 }}>
+        {postData.summary ?? "No Summary Available, sorry!"}
+      </Typography>
+
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1.5 }}>
+        <Typography variant="body2" color="text.secondary">
           Posted on{" "}
           <strong>
             <Date dateString={postData.date} />
           </strong>
-        </span>
-      </div>
+        </Typography>
+      </Box>
 
       {postData.tags?.length && (
-        <div className="tags mt-4">
+        <Stack direction="row" sx={{ flexWrap: "wrap", gap: 0.5 }}>
           {postData.tags.map((tag) => (
-            <span key={tag} className="tag is-link is-rounded ">
-              {tag}
-            </span>
+            <Chip key={tag} label={tag} size="small" color="primary" />
           ))}
-        </div>
+        </Stack>
       )}
-    </header>
+    </Box>
   );
 };
 

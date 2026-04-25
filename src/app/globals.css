@@ -1,9 +1,13 @@
-.content pre {
-  padding: 0;
-  /* background-color: #e1e1e1; */
+.post-content img {
+  max-width: 100%;
+  height: auto;
 }
 
-.content pre code {
+.post-content pre {
+  padding: 0;
+}
+
+.post-content pre code {
   padding: 1rem;
   display: block;
   background: transparent;

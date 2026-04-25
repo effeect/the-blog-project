@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
 import ImageCarousel from "../../atoms/ImageCarousel/ImageCarousel";
 
-// Background image component, takes children as a prop
 export default function BackgroundImages({
   children,
   images,
@@ -11,25 +11,21 @@ export default function BackgroundImages({
   children: React.ReactNode;
   images: string[];
 }) {
-  // Image index state
-  // Not sure if it should be here or in the ImageCarousel component
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-  return (
-    <section className="hero is-fullheight">
-      <div className="is-relative">
-        <ImageCarousel images={images} currentImageIndex={currentImageIndex} />
 
-        {/* Image Carousel Foreground content, is optional */}
-        <div className="is-relative" style={{ zIndex: 2 }}>
-          {children}
-        </div>
-      </div>
-    </section>
+  return (
+    <Box component="section" sx={{ minHeight: "100vh", position: "relative" }}>
+      <Box sx={{ position: "relative" }}>
+        <ImageCarousel images={images} currentImageIndex={currentImageIndex} />
+        <Box sx={{ position: "relative", zIndex: 2 }}>{children}</Box>
+      </Box>
+    </Box>
   );
 }
