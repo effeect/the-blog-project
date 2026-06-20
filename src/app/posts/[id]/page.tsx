@@ -24,6 +24,9 @@ type PostData = {
   contentHtml?: string;
 };
 
+// Only serve pre-generated ids; any other path returns a 404 automatically.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return getAllPostIds();
 }
@@ -33,7 +36,7 @@ export async function generateMetadata(props: {
 }) {
   const params = await props.params;
   const id = params.id;
-  const post = (await getPostData(id)) as PostData;
+  const post = (await getPostData(id)) as PostData | null;
   const url = `https://oliverdimes.dev/posts/${id}`;
 
   if (!post) return { title: "Post Not Found" };
@@ -67,11 +70,16 @@ export default async function PostPage(props: {
   const params = await props.params;
   const id = params.id;
 
-  const postData = (await getPostData(id)) as PostData;
-  const nearbyPosts = await getNextAndPrevPosts(id);
-  const currentIndexInfo = await getCurrentIndex(id);
+  const postData = (await getPostData(id)) as PostData | null;
 
+  // Guard before touching navigation helpers — an unknown id would otherwise
+  // index out of bounds and throw a 500.
   if (!postData || !postData.contentHtml) return notFound();
+
+  const nearbyPosts = getNextAndPrevPosts(id);
+  const currentIndexInfo = getCurrentIndex(id);
+
+  if (!nearbyPosts || !currentIndexInfo) return notFound();
 
   return (
     <Box component="section" sx={{ py: 6 }}>

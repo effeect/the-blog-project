@@ -21,10 +21,14 @@ export default async function PostsPage({ searchParams }: Props) {
   const allPostsData = getSortedPosts() as PostData[];
 
   const { page } = await searchParams;
-  const currentPage = Number(page) || 1;
   const postsPerPage = 5;
   const totalPosts = allPostsData.length;
   const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+  // Clamp to a valid range so out-of-bounds ?page= values (0, -1, 999) don't
+  // render an empty list with a 200 status.
+  const requestedPage = Number(page) || 1;
+  const currentPage = Math.min(Math.max(1, requestedPage), Math.max(1, totalPages));
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;

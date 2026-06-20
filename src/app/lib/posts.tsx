@@ -57,6 +57,8 @@ export function getCurrentIndex(id: string) {
   const current_id = id;
   // Returns the current index of the page being generated
   const current = data.findIndex(({ id }) => id == current_id);
+  // Unknown id: nothing to report, let the caller handle the 404
+  if (current === -1) return null;
   return { currentIndex: current, arrayLength: data.length };
 }
 
@@ -66,6 +68,8 @@ export function getNextAndPrevPosts(id: string) {
   const current_id = id;
   // Returns the current index of the page being generated
   const current = data.findIndex(({ id }) => id == current_id);
+  // Unknown id: guard against indexing data[-2] etc. (would throw)
+  if (current === -1) return null;
   // Returning the next and the previous index
   const prevIndex = () => {
     if (current == data.length - 1) {
@@ -92,11 +96,10 @@ export function getNextAndPrevPosts(id: string) {
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDir);
 
+  // Shape required by Next's generateStaticParams: the param object directly.
   return fileNames.map((fileName) => {
     return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
+      id: fileName.replace(/\.md$/, ""),
     };
   });
 }
@@ -174,10 +177,8 @@ export async function getPostData(id: string) {
     };
   } catch (error) {
     console.error(`Error fetching post data for ID ${id}`, error);
-    return {
-      id,
-      contentHtml: `<div>Not found<div>`,
-      error: "Post not found",
-    };
+    // Return null so callers can trigger a real 404 (notFound) instead of
+    // rendering a placeholder with a 200 status.
+    return null;
   }
 }
