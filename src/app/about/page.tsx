@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import ContactButtons from "../components/atoms/contactButtons/contactButtons";
 
 export const metadata = {
@@ -17,10 +18,14 @@ export default function About() {
   return (
     <Box component="section" sx={{ py: 6 }}>
       <Container maxWidth="md">
-        <Box sx={{ minHeight: 500 }}>
-          <Typography variant="h4" gutterBottom>
+        <Box component="header" sx={{ mb: 4 }}>
+          <Typography variant="h3" gutterBottom>
             About Me
           </Typography>
+        </Box>
+        <Divider sx={{ my: 3 }} />
+
+        <Box sx={{ minHeight: 500 }}>
           <Typography variant="body1" sx={{ mb: 2 }}>
             <strong>Hello there!</strong>, welcome to my personal blog and
             portfolio site where I tend to host my thoughts and development
@@ -47,11 +52,16 @@ export default function About() {
             and try to develop most of my stuff in the context of using it in
             a Docker container which is a good thing to do.
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            If you want to get in touch with me, you can contact me with the
-            following contact links!
-          </Typography>
         </Box>
+      </Container>
+
+      <Divider sx={{ my: 4 }} />
+
+      <Container maxWidth="md">
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          If you want to get in touch with me, you can contact me with the
+          following contact links!
+        </Typography>
         <ContactButtons />
       </Container>
     </Box>
