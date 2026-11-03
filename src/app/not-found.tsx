@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <Box component="section" sx={{ py: 6 }}>
       <Container maxWidth="md" sx={{ textAlign: "center" }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
+        <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           Page not found
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>

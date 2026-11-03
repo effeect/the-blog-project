@@ -28,7 +28,7 @@ So I decided to start a new version of this technical assessment as a way to vie
 
 Whilst the UI appears to be similar on first glance for this web app, it's important to note that the component file structure is significantly tidier in this iteration of the app.
 
-![](../public/assets/gitsearch/after.png)
+![Visual Studio Code file explorer showing the GitSearch src folder, with components organised into atoms, molecule and organisms folders](../public/assets/gitsearch/after.png)
 _View in Visual Studio Code of my new approach_
 
 I decided to adopt an atomic design principal, this is my first time doing it and whilst I don't think its perfect, its miles better than before and it should allow me to do automated tests quite easily. Youy can read more about what this design principle means [here](https://medium.com/@abdallahosama8053/mastering-atomic-design-in-react-a-practical-guide-for-scalable-ui-architecture-bbb86abed541).

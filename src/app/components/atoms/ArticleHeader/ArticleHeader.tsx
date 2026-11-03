@@ -9,11 +9,16 @@ import { PostData } from "@/app/types/PostData.type";
 const ArticleHeader = ({ postData }: { postData: PostData }) => {
   return (
     <Box component="header" sx={{ mb: 4 }}>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h3" component="h1" gutterBottom>
         {postData.title}
       </Typography>
 
-      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 1.5 }}>
+      <Typography
+        variant="subtitle1"
+        component="p"
+        color="text.secondary"
+        sx={{ mb: 1.5 }}
+      >
         {postData.summary ?? "No Summary Available, sorry!"}
       </Typography>
 
@@ -26,7 +31,7 @@ const ArticleHeader = ({ postData }: { postData: PostData }) => {
         </Typography>
       </Box>
 
-      {postData.tags?.length && (
+      {postData.tags && postData.tags.length > 0 && (
         <Stack direction="row" sx={{ flexWrap: "wrap", gap: 0.5 }}>
           {postData.tags.map((tag) => (
             <Chip key={tag} label={tag} size="small" color="primary" />

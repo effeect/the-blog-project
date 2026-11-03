@@ -102,7 +102,7 @@ There is a lot less additional things needed for me personally in order to get a
 
 As part of the Bulma implementation, I've made a conscious effort to put the components in a much tidier format, specifically similar to what I've done previously with the atom-based structure. At the time of writing, it’s not fully complete and matching, however, certain parts of the website are much, much better.
 
-![](../public/assets/taking-tailwind-off/workinprogress.png)
+![Visual Studio Code file explorer showing the src/app folder of this blog, with blockfield, footer, navbar and pagecontrols folders under components/atoms](../public/assets/taking-tailwind-off/workinprogress.png)
 _Work in progress view of the new component structure, inspired by the atomic design structure_
 
 # Code blocks are greatly improved

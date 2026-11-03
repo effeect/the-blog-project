@@ -140,7 +140,7 @@ I separated the script from the Ansible playbook to make things a bit more tidy 
 
 With the script above, we are just simply outputting the status of the system into the terminal. We should do some conditionals based on the results such as alerting the machine that these things aren't enabled.
 
-![](../public/assets/ansible-lanman-part2/tpm.png)
+![Terminal output of the check-tpm-secureboot Ansible playbook, reporting TPM present, ready and activated, manufacturer version 2.102.0.1, and Secure Boot not enabled](../public/assets/ansible-lanman-part2/tpm.png)
 _Output from running the Ansible playbook by itself_
 
 Whilst here, I also did a quick network config script, although the output isn't particularly nice, it's mostly meant for debugging but could turn it into something useful later.

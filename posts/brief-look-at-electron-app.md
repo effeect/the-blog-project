@@ -27,7 +27,7 @@ And more importantly, the advantages of having this being a web app effectively 
 
 # Yes (sorta)
 
-![](../public/assets/next-shortcut-manager/games-screen.png)
+![Next Shortcut Manager home screen with a library search box, launcher filters for Steam, Epic, EA, Ubisoft and GOG, and a grid of game cards with Launch, Open Folder Location and Search Online buttons](../public/assets/next-shortcut-manager/games-screen.webp)
 _A view of the current home screen_
 
 There are a few asterisks, and I want to get to them, but I have developed a launcher that does the following :
@@ -110,7 +110,7 @@ There are a few steps for this, but the main ones to keep in mind :
 - Next, we compile the Typescript code to JS for Electron (I’ve used ts for the Electron app to allow the usage of types)
 - Finally, we use Electron Forge to compile the application.
 
-![](../public/assets/next-shortcut-manager/appwiz-view.png)
+![Windows Programs and Features list with NextShortcutManager selected, showing Oliver Dimes as publisher, size 127 MB and version 1.0.0](../public/assets/next-shortcut-manager/appwiz-view.png)
 _Admittedly, whilst it has a bunch of default things, it's kinda cool seeing your name in appwiz.cpl in Windows._
 
 With a simple GitHub action, we can export a basic artifact. I still need to do some extensive testing, but I’m happy that we at least got an artifact.

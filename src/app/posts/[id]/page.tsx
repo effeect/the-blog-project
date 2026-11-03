@@ -13,16 +13,7 @@ import "highlight.js/styles/github-dark.css";
 import ArticleHeader from "@/app/components/atoms/ArticleHeader/ArticleHeader";
 import ContactButtons from "@/app/components/atoms/contactButtons/contactButtons";
 import PostControls from "@/app/components/atoms/PostControls/PostControls";
-
-type PostData = {
-  id: string;
-  date: string;
-  title: string;
-  previewImage?: string;
-  tags?: string[];
-  summary?: string;
-  contentHtml?: string;
-};
+import { defaultPreviewImage, siteName, siteUrl } from "@/app/lib/site";
 
 // Only serve pre-generated ids; any other path returns a 404 automatically.
 export const dynamicParams = false;
@@ -36,17 +27,12 @@ export async function generateMetadata(props: {
 }) {
   const params = await props.params;
   const id = params.id;
-  const post = (await getPostData(id)) as PostData | null;
-  const url = `https://oliverdimes.dev/posts/${id}`;
+  const post = await getPostData(id);
+  const url = `${siteUrl}/posts/${id}`;
 
   if (!post) return { title: "Post Not Found" };
 
-  if (!post.previewImage) {
-    post.previewImage = "/default-preview.png";
-  }
-
   return {
-    metadataBase: new URL("https://oliverdimes.dev"),
     alternates: { canonical: url },
     title: `oliverdimes.dev - ${post.title}`,
     description: post.summary ?? `A post about ${post.tags?.join(", ")}`,
@@ -58,8 +44,8 @@ export async function generateMetadata(props: {
       type: "article",
       publishedTime: post.date,
       authors: ["Oliver Dimes"],
-      siteName: "oliverdimes.dev",
-      images: [post.previewImage],
+      siteName,
+      images: [post.previewImage ?? defaultPreviewImage],
     },
   };
 }
@@ -70,7 +56,7 @@ export default async function PostPage(props: {
   const params = await props.params;
   const id = params.id;
 
-  const postData = (await getPostData(id)) as PostData | null;
+  const postData = await getPostData(id);
 
   // Guard before touching navigation helpers — an unknown id would otherwise
   // index out of bounds and throw a 500.

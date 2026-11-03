@@ -167,7 +167,7 @@ Note that this function would never be called when the using loads the site, as 
 
 The final result looked something like this :
 
-![](../public/assets/whattimeisf1/image.png)
+![What Time Is F1 website showing the Australian Grand Prix at Albert Park Grand Prix Circuit, with the dates and times of each practice session, qualifying and the race](../public/assets/whattimeisf1/image.png)
 
 A simple enough UI based in Bulma but should be more than enough to satisfy the basic user. Getting this to work with multiple time zones was a little complicated.
 

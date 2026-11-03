@@ -6,12 +6,10 @@ import Divider from "@mui/material/Divider";
 import ContactButtons from "../components/atoms/contactButtons/contactButtons";
 
 export const metadata = {
-  metadataBase: new URL("https://oliverdimes.dev"),
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/about" },
   title: `oliverdimes.dev - About Me`,
   description: `About Me - Personal Blog/Portfolio for Oliver Dimes, development stuff, personal projects and more`,
   keywords: "Article, About Me",
-  openGraph: { images: ["/default_preview.png"] },
 };
 
 export default function About() {
@@ -19,7 +17,7 @@ export default function About() {
     <Box component="section" sx={{ py: 6 }}>
       <Container maxWidth="md">
         <Box component="header" sx={{ mb: 4 }}>
-          <Typography variant="h3" gutterBottom>
+          <Typography variant="h3" component="h1" gutterBottom>
             About Me
           </Typography>
         </Box>
@@ -40,7 +38,7 @@ export default function About() {
             visa and during my stay, I have been doing lots of language study
             and work on my personal projects that I have always wanted to do
             such learning more about Next.js and React. Fun fact, this very
-            website is actually built on Next.js and is hosted on Github which
+            website is actually built on Next.js and is hosted on Vercel which
             is very neat.
           </Typography>
           <Typography variant="body1" sx={{ mb: 2 }}>

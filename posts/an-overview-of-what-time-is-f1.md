@@ -8,7 +8,7 @@ previewImage: "assets/what-time-is-f1-next/grand_prix.png"
 
 **With Formula One on the horizion**, one of the things I wanted to tackle was to find an easy way to get the timetable data for the next race.
 
-![](../public/assets/what-time-is-f1-next/google_search.png)
+![Google results for "F1 race" with a Formula 1 panel showing the Australian GP on Sunday March 8 at 13:00 at the Melbourne Grand Prix Circuit, in Japan Standard Time](../public/assets/what-time-is-f1-next/google_search.png)
 _A google search for next f1 race_
 
 Whilst this sounds like a simple objective – searching “what time is F1?” on Google/DuckDuckGo – these tools have always frustrated me. A lot of the time, they won’t give session times for each session and will often only return the main event, which isn't ideal if you are a fan of the sport.
@@ -99,7 +99,7 @@ You can view the complete file here on [Github](https://github.com/effeect/what-
 
 The next step was to automate the generation of this output file when needed. My idea was to set up a GitHub Action that would run the Node script, generate the json file, and then commit the changes directly to the GitHub repository.
 
-![](../public/assets/what-time-is-f1-next/github_action.png)
+![GitHub Actions run of Get Race Schedule with a successful build job, listing steps including Setup Node.js, Fetch Race Data, and Commit and Push Changes](../public/assets/what-time-is-f1-next/github_action.png)
 _A github action overview page_
 
 So in this [workflow](https://github.com/effeect/what-time-is-f1-next/blob/ad08287b9f32ccf82615877a1fceae60f91445fa/.github/workflows/node.js.yml), the first thing we do is spin up Ubuntu and setup-node action.
@@ -221,7 +221,7 @@ export default async function RoundPage({
 
 There are a few quirks with this that I’d love to delve into, but the overall result is pretty nice.
 
-![](../public/assets/what-time-is-f1-next/grand_prix.png)
+![What Time Is F1 page showing the race timetable for the Mexico City Grand Prix, with times for each practice session, qualifying and the race, and links to the previous and next races](../public/assets/what-time-is-f1-next/grand_prix.png)
 _View of the Website running locally on my machine, we have information at the top declaring the race event, the circuit name and most importantly a table which contains a list of events_
 
 At the time of writing, the site is currently being hosted on [vercel](https://what-time-is-f1-next.vercel.app/) with a very long uninteresting domain name. I may purchase a domain name for this when I've done some additional work to the site.

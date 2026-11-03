@@ -5,16 +5,9 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import Date from "@/app/lib/date";
+import Date from "@/app/components/atoms/date/date";
+import { PostData } from "@/app/types/PostData.type";
 import styles from "./blockfield.module.css";
-
-type PostData = {
-  id: string;
-  date: string;
-  title: string;
-  tags?: string[];
-  summary?: string;
-};
 
 export default function BlockField({
   currentPosts,
@@ -32,11 +25,21 @@ export default function BlockField({
           data-testid="post-card"
           elevation={2}
           className={styles.postBox}
-          sx={{ p: 2.5 }}
         >
-          <NextLink href={`/posts/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
+          {/* The padding sits inside the link so the whole card is clickable */}
+          <Box
+            component={NextLink}
+            href={`/posts/${id}`}
+            sx={{
+              display: "block",
+              p: 2.5,
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
             <Typography
               variant="h5"
+              component="h2"
               className={styles.hoverUnderline}
               gutterBottom
             >
@@ -58,7 +61,7 @@ export default function BlockField({
                 ))}
               </Stack>
             )}
-          </NextLink>
+          </Box>
         </Paper>
       ))}
     </Box>

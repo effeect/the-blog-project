@@ -11,7 +11,7 @@ Apologies for the lack of updates in the last week or so as I've been on a brief
 # LibreHardware Monitor CLI Introduction
 
 For a while, I've been interested in monitoring temperature/clock speed stuff in Windows. Originally, back when I built my first computer in 2013, which had a rocking AMD FX6300 and a GTX 670 4GB. I was quite obsessed with keeping an eye on my temperatures/clock speeds so I could get the most performance. I eventually upgraded a bit later to an Intel 4700 and an Asus GTX 970 the following year.
-![A very ugly looking picture of my old PC](../public/assets/libre_hardware_monitor_cli_intro/old_pc.png)
+![A very ugly looking picture of my old PC](../public/assets/libre_hardware_monitor_cli_intro/old_pc.webp)
 _Picture of my PC from around 2013_
 
 And _for_ quite a while, there have been a few programs that you could use in order to grab sensor data. There are a few specific programs that people would normally refer to :

@@ -12,10 +12,10 @@ For the last week or so, I've worked on a little project that allows for searchi
 
 You can find it on [here](https://gitsearch-liard.vercel.app/)
 
-![](../public/assets/github-search/GithubRepoSearch.png)
+![GitSearch home page with "React" in the search box and a results list showing facebook/react and other repositories with their tags, stars and forks](../public/assets/github-search/GithubRepoSearch.png)
 _The Main Search Page_
 
-![](../public/assets/github-search/GitHubRepoMenu.png)
+![GitSearch repository page for facebook/react with buttons to search code, commits, issues and PRs, plus its tags, creation date and fork, star and open issue counts](../public/assets/github-search/GitHubRepoMenu.png)
 _The page you see when you click on a page_
 
 This project does not use Next.js or anything and it's designed to be relatively small.
@@ -40,7 +40,7 @@ Whilst I'm happy with the result, there are some things I would like to change/i
 - There is code for a SearchUser.ts file under /api/, however, I didn't feel like it fit the scope of this app. However, it can be quickly implemented if needed.
 - There is a route for a "file viewer" which would allow you to click the code item and view it within the app without going to GitHub directly. However, it wasn't particularly great, and I decided to just redirect to the specific file on GitHub. This can be changed.
 - Not all qualifiers are included in the search items as some of the qualifiers can get a bit complex. I decided to limit them; however, the type interfaces are defined so they can be added back in quickly.
-- I wanted to implement view transitions for the router <Link>’s, but I didn't get time to look into it too much.
+- I wanted to implement view transitions for the router `<Link>`’s, but I didn't get time to look into it too much.
 - The "label" qualifier has an issue where if you don't put "" around the label, it will not work.
 - I would also like to implement a better way to show off metadata. I've had some good experiences with Next.js when it comes to handling it; however, I wasn't wanting to add more npm packages for something relatively small and minor.
 
