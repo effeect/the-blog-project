@@ -27,7 +27,7 @@ While these issues are gaming-specific, there is immense value in automating thi
 
 What I'm wanting to do with this project is to lead this work into other parts of a whole suite of tools related to this, or at the very least an Express server that can issue out long-winded Ansible commands to the hosts. Below is a diagram that showcases what I am talking about.
 
-![](../public/assets/ansible-lanman-part1/diagram.png)
+![Architecture diagram: a front end UI talks to Express.js, Express.js exchanges requests with an Ansible server, and the Ansible server connects to Windows machines 1 to 4](../public/assets/ansible-lanman-part1/diagram.png)
 
 # Part 1 : Using Winget to install game launchers
 

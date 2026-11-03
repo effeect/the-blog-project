@@ -13,6 +13,8 @@ export default function PageControls({
   const isFirst = currentPage <= 1;
   const isLast = currentPage >= totalPages;
 
+  // At either end the control is a disabled button rather than a link, so
+  // keyboards and crawlers can't follow it to a page that doesn't exist.
   return (
     <Box
       sx={{
@@ -26,13 +28,9 @@ export default function PageControls({
     >
       <Button
         variant="outlined"
-        component={NextLink}
-        href={`/posts?page=${currentPage - 1}`}
-        aria-disabled={isFirst}
-        sx={{
-          pointerEvents: isFirst ? "none" : "auto",
-          opacity: isFirst ? 0.38 : 1,
-        }}
+        component={isFirst ? "button" : NextLink}
+        href={isFirst ? undefined : `/posts?page=${currentPage - 1}`}
+        disabled={isFirst}
       >
         Previous
       </Button>
@@ -43,13 +41,9 @@ export default function PageControls({
 
       <Button
         variant="outlined"
-        component={NextLink}
-        href={`/posts?page=${currentPage + 1}`}
-        aria-disabled={isLast}
-        sx={{
-          pointerEvents: isLast ? "none" : "auto",
-          opacity: isLast ? 0.38 : 1,
-        }}
+        component={isLast ? "button" : NextLink}
+        href={isLast ? undefined : `/posts?page=${currentPage + 1}`}
+        disabled={isLast}
       >
         Next page
       </Button>

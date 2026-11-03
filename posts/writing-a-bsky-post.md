@@ -119,7 +119,7 @@ export async function getRandomGame() {
 
 There was some additional formatting/wrangling I had to do to get this is a presentable form like below but overall it works really well in testing as shown below.
 
-![](../public/assets/bsky-app-project/image.png)
+![Two Bluesky posts from the A Random Game Every Day account, each listing a game, its release date, developer and IGDB link, with four Game Boy style screenshots on the second post](../public/assets/bsky-app-project/image.webp)
 _A view of the post of the account active on bsky_
 
 # Step 3 : Hosting on Github Actions!

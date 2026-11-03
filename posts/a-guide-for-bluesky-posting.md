@@ -50,7 +50,7 @@ After installing, add a start script with the command `tsx index.ts` and change 
 
 Then, create a file called `index.ts` and this will be the main entry point of the app. If we run `npm run start` we should get the console.log working :
 
-![](../public/assets/bsky-project-redo/helloworld.png)
+![Terminal running npm run start in bsky-bot-project, which runs node index.ts and prints hello world](../public/assets/bsky-project-redo/helloworld.png)
 _Running the command to get a console.log back, super quick and easy_
 
 # Step 2 : Setup Bluesky Account
@@ -59,12 +59,12 @@ If you haven't done already, the next step is sign up for an account which can b
 
 You can easily create an "app password", I would recommend putting a name stating the project name. In this case mine is quite obvious.
 
-![](../public/assets/bsky-project-redo/signup.png)
+![Bluesky Add App Password dialog with the name ForMyBlogPost entered, an unticked option to allow access to direct messages, and a Next button](../public/assets/bsky-project-redo/signup.png)
 _A simple but good name_
 
 After submitting, you should get your app password. PLEASE, take care of this and treat this like any API key, so save it in a secure place and note that you will not be able to view it again and will have to create a new one if you lose the details.
 
-![](../public/assets/bsky-project-redo/app-password-censored.png)
+![Bluesky dialog titled "Here is your app password!" with the password blacked out and a warning that it cannot be viewed again](../public/assets/bsky-project-redo/app-password-censored.png)
 _Censored but should look like this_
 
 With that out of the way, we are going to get our credentials' setup, the best way to do this in our Node environment is use a `.env` file and the `dotenv` functionality we installed earlier. We will create a `.env` file which looks like this :
@@ -123,7 +123,7 @@ main();
 
 If you run this file, you should get the `console.log` statement saying the post has been posted, and you should see a post on the Bluesky account you had just setup. Below is what it looked like on my account.
 
-![](../public/assets/bsky-project-redo/result.png)
+![Bluesky profile for Oliver Dimes with a new post at the top of the feed reading Hello World!](../public/assets/bsky-project-redo/result.png)
 _My own personal account posting Hello World!_
 
 So with that in mind, your mind is now probably racing about what kind of things you can do with this, for example you could :

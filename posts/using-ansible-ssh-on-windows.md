@@ -56,7 +56,7 @@ Note that if this command fails, you may need to additionally install OpenSSH on
 
 You can verify that OpenSSH is running by checking for the OpenSSH service in `services.msc`.
 
-![](../public/assets/ansible-ssh/servicesmsc.png)
+![Windows Services window with OpenSSH Authentication Agent and OpenSSH SSH Server highlighted, both Running with startup type Automatic](../public/assets/ansible-ssh/servicesmsc.png)
 _In services.msc, you should see both of these OpenSSH services running with the startup type being labelled as "Automatic"_
 
 Once OpenSSH is confirmed to be running, ensure your network setup is correct. Make sure that you can successfully connect and ping the machine across the network. For this demonstration, I’ve used a static IP address to keep things simple.
@@ -72,7 +72,7 @@ First, let’s attempt to SSH into the Windows machine we just configured using 
 
 You should be prompted to accept the key and enter a password. Enter the password, and you’ll successfully log into the system – as shown below.
 
-![](../public/assets/ansible-ssh/powershell.png)
+![Terminal connected over SSH to a Windows machine, showing the Windows PowerShell banner and a prompt at C:\Users\odimes-vm-1](../public/assets/ansible-ssh/powershell.png)
 _SSH into the Windows machine like this_
 
 If that works, we'll set up the inventory file in Ansible. Note that there are other ways of doing this, but this method should work for most setups. I’ve named this file `inventory.ini` to keep things simple:
@@ -218,13 +218,13 @@ The way I tested this was to copy a 2GB video file across, now considering this 
 
 Took under a minute in ssh world, hitting a max speed 500Mbps according to Windows Task Manager.
 
-![](../public/assets/ansible-ssh/Usage-under-ssh.png)
+![Windows Task Manager Ethernet graph during the SSH copy, with throughput holding at a plateau above the 300 Mbps line on a 1 Gbps scale](../public/assets/ansible-ssh/Usage-under-ssh.png)
 
 ## WinRM Copy result
 
 Took 2 minutes with WinRM set to basic auth and using ntlm, hitting a max speed of 300mbps. I'm not sure why it took double the time (I was expecting it to be 1m40s-ish) however I think it's evident that it's much slower in this context.
 
-![](../public/assets/ansible-ssh/Usage-under-winrm.png)
+![Windows Task Manager Ethernet graph during the WinRM copy, with throughput holding at a plateau above the 200 Mbps line on a 500 Mbps scale](../public/assets/ansible-ssh/Usage-under-winrm.png)
 
 # Potential issues
 

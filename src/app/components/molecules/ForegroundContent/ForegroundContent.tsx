@@ -19,11 +19,16 @@ const ForegroundContent = () => {
     >
       <ProfilePic />
 
-      <Typography variant="h3" sx={{ mb: 1 }}>
+      <Typography variant="h3" component="h1" sx={{ mb: 1 }}>
         oliverdimes.dev
       </Typography>
       <Container maxWidth="md">
-        <Typography variant="h5" color="text.secondary" sx={{ mb: 4 }}>
+        <Typography
+          variant="h5"
+          component="p"
+          color="text.secondary"
+          sx={{ mb: 4 }}
+        >
           Posts and projects about my development and more!
         </Typography>
       </Container>

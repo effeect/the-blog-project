@@ -180,7 +180,7 @@ export default NavigationBar;
 
 After some more touch ups such as adding a permanent redirect on the home page which will take you to the current next race (so the site behaves the same as before if you just link the main homepage).
 
-![](../public/assets/whattimeisf1part2/website.png)
+![What Time Is F1 website showing the Chinese Grand Prix at Shanghai International Circuit, with times for each session and Previous Race and Next Race buttons](../public/assets/whattimeisf1part2/website.png)
 _A view of the website_
 
 I would like to do some visual redesign (as you can tell, we are using the same footer as the blog) however technically I am happy with the state of the site.

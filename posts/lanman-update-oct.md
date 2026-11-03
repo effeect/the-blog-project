@@ -107,7 +107,7 @@ volumes:
 
 I did look at Mozilla SOPS but I didn’t think it was approaite. Designing this system is a bit of pain as these aren’t user credentials for the user its for other machines which means we need to take into consideration that Ansible needs to access these credentials which makes balancing it a bit of a pain.
 
-![](../public/assets/lanman-update-oct/mongo.png)
+![MongoDB document for a machine named LAN1 with fields for its ID, a vault_path of secret/data/machines/LAN1, and its IP address](../public/assets/lanman-update-oct/mongo.png)
 The good news is the Ansible jobs now use the vault. I'm creating a path for the secret in mongodb so it knows where to look however we should be able to remove this and keep it locked down in the backend as we are identifying this by the machine id anyways.
 
 # You can use it (although I would wait a bit)

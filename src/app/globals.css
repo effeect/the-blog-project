@@ -1,3 +1,36 @@
+/* Lets <main> fill the page so the footer stays at the bottom on short pages */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Long URLs and inline code wrap instead of widening the page on phones */
+.post-content {
+  overflow-wrap: anywhere;
+}
+
+/* Post headings start at h2 (the title is the h1), so keep their sizes in step */
+.post-content h2 {
+  font-size: 2em;
+}
+
+.post-content h3 {
+  font-size: 1.5em;
+}
+
+.post-content h4 {
+  font-size: 1.17em;
+}
+
+.post-content h5 {
+  font-size: 1em;
+}
+
+.post-content h6 {
+  font-size: 0.83em;
+}
+
 .post-content a {
   color: #90caf9;
 }
@@ -20,4 +53,5 @@
   display: block;
   background: transparent;
   color: inherit;
+  overflow-x: auto;
 }

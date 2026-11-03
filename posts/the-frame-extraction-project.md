@@ -21,7 +21,7 @@ So I thought hey, why don't we create a simple web app that just takes an .mp4 f
 
 # The Result
 
-![Website](../public/assets/the-frame-extraction-project/website.png)
+![Website](../public/assets/the-frame-extraction-project/website.webp)
 So right now on the [World Wide Web](https://frame-extracter-site.vercel.app), there is a project running that can do such a thing and it works on mobile as well which is pretty sick.
 
 # Some code highlights
