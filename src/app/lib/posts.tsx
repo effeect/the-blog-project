@@ -18,6 +18,7 @@ import { visit } from "unist-util-visit";
 import { Root, Element } from "hast";
 import { Root as MarkdownRoot, Html } from "mdast";
 import { PostData } from "@/app/types/PostData.type";
+import { PostTag } from "@/app/types/PostTag.type";
 
 const postsDir = path.join(process.cwd(), "posts");
 const publicDir = path.join(process.cwd(), "public");
@@ -58,6 +59,37 @@ export function getSortedPosts() {
   });
 
   return sortedPosts;
+}
+
+// Tags are written by hand in each post, so "Next.js", "next.js" and "NextJS"
+// are all treated as the same tag.
+export function getTagSlug(tag: string) {
+  return tag.trim().toLowerCase().replaceAll(".", "");
+}
+
+export function getPostsByTag(tag: string) {
+  const slug = getTagSlug(tag);
+  return getSortedPosts().filter(({ tags }) =>
+    tags?.some((postTag) => getTagSlug(postTag) === slug),
+  );
+}
+
+// Every tag in use, alphabetically. Posts are sorted newest first, so a tag with
+// several spellings is labelled with the one from its newest post.
+export function getAllTags(): PostTag[] {
+  const labels = new Map<string, string>();
+  for (const { tags } of getSortedPosts()) {
+    for (const label of tags ?? []) {
+      const slug = getTagSlug(label);
+      if (!labels.has(slug)) labels.set(slug, label);
+    }
+  }
+
+  return Array.from(labels, ([slug, label]) => ({
+    slug,
+    label,
+    count: getPostsByTag(slug).length,
+  })).sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
 export function getCurrentIndex(id: string) {

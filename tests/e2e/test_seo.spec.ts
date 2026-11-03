@@ -43,6 +43,26 @@ test("later posts pages have their own title and canonical", async ({ page }) =>
   );
 });
 
+test("tag search results are titled but not indexed", async ({ page }) => {
+  await page.goto("/posts?tag=javascript&page=2");
+  await expect(page).toHaveTitle(
+    "oliverdimes.dev - Posts tagged JavaScript (page 2)",
+  );
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    "content",
+    "noindex, follow",
+  );
+  await expect(page.locator(canonical)).toHaveAttribute(
+    "href",
+    "https://oliverdimes.dev/posts?tag=javascript&page=2",
+  );
+});
+
+test("the full posts list stays indexable", async ({ page }) => {
+  await page.goto("/posts");
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+});
+
 test("a post with no preview image falls back to one that exists", async ({
   page,
   request,

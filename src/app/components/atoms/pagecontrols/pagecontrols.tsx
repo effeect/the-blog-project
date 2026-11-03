@@ -2,13 +2,16 @@ import NextLink from "next/link";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { getPostsUrl } from "@/app/lib/site";
 
 export default function PageControls({
   currentPage,
   totalPages,
+  tag,
 }: {
   currentPage: number;
   totalPages: number;
+  tag?: string;
 }) {
   const isFirst = currentPage <= 1;
   const isLast = currentPage >= totalPages;
@@ -29,7 +32,7 @@ export default function PageControls({
       <Button
         variant="outlined"
         component={isFirst ? "button" : NextLink}
-        href={isFirst ? undefined : `/posts?page=${currentPage - 1}`}
+        href={isFirst ? undefined : getPostsUrl({ tag, page: currentPage - 1 })}
         disabled={isFirst}
       >
         Previous
@@ -42,7 +45,7 @@ export default function PageControls({
       <Button
         variant="outlined"
         component={isLast ? "button" : NextLink}
-        href={isLast ? undefined : `/posts?page=${currentPage + 1}`}
+        href={isLast ? undefined : getPostsUrl({ tag, page: currentPage + 1 })}
         disabled={isLast}
       >
         Next page
